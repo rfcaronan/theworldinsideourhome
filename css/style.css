@@ -1,0 +1,637 @@
+/* BODY */
+
+/* Remove all margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0em 1.5em;
+    overflow: auto;
+}
+
+
+/* BORDERS AND BACKGROUND */
+
+/* All pages: adjust borders of buttons to make them look like
+they are sketched */
+button,
+.text-with-box-border {
+    border: solid .12em black;
+    background: white;
+    border-radius: 17em 1.5em 17em 1.5em/1.5em 17em 1.5em 17em;
+}
+
+/* All pages: with underlined text */
+.text-with-underline {
+    border-bottom: solid .12em black;
+    border-radius: 1.5em 1.5em 17em 1.5em/1.5em 17em 1.5em 1.5em;
+}
+
+
+/* All pages: background of header */
+div.heading-container {
+    background-color: white;
+}
+
+/* Homepage: initial state of home button */
+.selected,
+/* All home buttons will have the same background color when hovered */
+button.home-button:hover,
+/* Homepage: link in popups */
+a.grey-hover:hover {
+    background: #cecece;
+}
+
+/* Homepage: set background color of popups */
+.food-pop {
+    background: #27b500; 
+}
+
+.wood-pop {
+    background: #DB874B;
+}
+
+.textile-pop {
+    background: #2889C6;
+}
+
+/* Explore more link */
+a.popup-link {
+    background: white;
+    border-radius: 6px;
+}
+
+/* Homepage: set popup boxes */
+.popup-div {
+    box-shadow: 0 6px 10px 0 rgba(157,157,157), 0 8px 22px 0 rgba(157,157,157);
+    border-radius: 3px;
+}
+
+/* MARGINS and PADDING */
+
+/* All pages: Make the button rectangle and space them evenly */
+button {
+    padding: .1em 1.2em;
+    margin: 1em .5em 0 .5em;
+}
+
+/* Homepage: set position of project members and date */
+div.project-intro,
+div.project-info-div {
+    margin-top: 0em;
+}
+
+.intro-text {
+    padding-bottom: 2em;
+}
+
+.heading-container,
+.project-info {
+    padding-top: 1.2em;
+}
+
+span.text-with-box-border {
+    padding: .2em .4em;
+}
+
+/* Homepage: make a line dividing project intro text
+and project members and date */
+/* Story page: make a line before credits */
+
+div.project-info-div:before {
+    content: " ";
+    background: black;
+    height: 5px;
+    width: 30%;
+    position: absolute;
+}
+
+/* Story pages: make a line at the back of buttons */
+div.industry-buttons:before{
+    content: " ";
+    background: black;
+    left: 20em;
+    height: 3px;
+    width: 55vw;
+    top: 7em;
+    z-index: -1;
+    position: fixed;
+}
+
+div.credits-div:before {
+    content: " ";
+    background: black;
+    height: 5px;
+    width: 30%;
+    position: absolute;
+}
+
+.left-side-container {
+    top: 9em;
+}
+
+.right-side-container {
+    top: 10em;
+}
+
+/* Homepage: popups and inside of popups */
+div.popup-div {
+    padding: 1.5em;
+}
+
+a.popup-link {
+    padding: .5em 2.5em;
+}
+
+span.popup-link {
+    margin-top: 1.5em;
+}
+
+/* Story pages: make a line at the back of buttons */
+div.header-button-div:before{
+    content: " ";
+    background: black;
+    left: 0;
+    height: 3px;
+    width: 97vw;
+    top: 7em;
+    z-index: -1;
+    position: absolute;
+}
+
+/* POSITION AND ALIGNMENT OF ELEMENTS */
+
+/* All pages: position of project title and buttons*/
+/* Fix the heading container at the top */
+div.heading-container {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+}
+
+/* Homepage: container for house images and project description text */
+div.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* Homepage: left-side container */
+div.left-side-container {
+    flex: 3;
+    position: relative;
+}
+
+/* Homepage: right-side container */
+div.right-side-container {
+    flex: 1;
+    position: relative;
+    /* Make popups above the project-intro text */
+    display: flex;
+}
+
+/* Homepage: create line break for know more link in popups */
+span.popup-link {
+    display: block;
+}
+
+/* Homepage: set position of popup boxes */
+.popup-div {
+    visibility: hidden;
+    position: absolute;
+}
+
+/* Homepage: set position of house images */
+img.house-images {
+    position: absolute;
+}
+
+/* Homepage: house images */
+.image-container .house-base {
+    position: absolute;
+    visibility: hidden;
+}
+
+.image-container .popupimg1 {
+    position: absolute;
+    visibility: hidden;
+}
+
+.image-container .popupimg2 {
+    position: absolute;
+    visibility: hidden;
+}
+
+.image-container .popupimg3 {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* Homepage: show elements in the images container when button is clicked */
+.image-container .show,
+.image-container .show-base,
+/* Homepage: show popups when button is clicked */
+.popup .show,
+.popup-text-container .show {
+    visibility: visible;
+}
+
+/* Homepage: hide elements in the images container when button is clicked */
+.image-container .hide,
+/* Homepage: hide the project intro text when popups show*/
+.project-intro .hide,
+/* Homepage: hide popups when button is clicked */
+.popup .hide,
+.popup-text-container .hide {
+    visibility: hidden;
+}
+
+/* Homepage: add fade in effect to popups and images) */
+.image-container .show,
+.image-container .show-base,
+.popup .show,
+.popup-text-container .show,
+.project-intro .show,
+.image-container .hide,
+.project-intro .hide,
+.popup .hide,
+.popup-text-container .hide {
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+
+/* Homepage: remove any fade in effect to house base
+so that change in opacity is not obvious */
+.image-container .show-base {
+    -webkit-animation: fadeIn 0s;
+    animation: fadeIn 0s;
+}
+
+/* Fade in animation */
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* SIZE (WIDTH AND HEIGHT) OF ELEMENTS */
+
+/* All pages: width of the container of project title and buttons*/
+div.heading-container {
+    width: 100%;
+}
+
+/* Homepage: set width of house images */
+img.house-images {
+    width: 100%;
+}
+
+/* Homepage: set popup div in a way that it follows
+the size of text inside it */
+.popup-div {
+    width: auto;
+    height: auto;
+}
+
+div.header-button-div {
+    width: 100%;
+}
+
+/* FONT FAMILY, SIZE, WEIGHT, ALIGNMENT */
+
+body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Open Sans", sans-serif;
+}
+
+/* All pages: for all text in p and button elements */
+p,
+button { 
+    font-family: Open Sans, sans-serif;
+    font-size: .9rem;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+p.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.no-line-height {
+    line-height: 1;
+}
+
+/* All pages: for all text in h element */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display", serif;
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* All pages: for headings */
+.heading-title {
+    font-size: 1.1rem;
+}
+
+.main-title {
+    font-size: 1.3rem;
+}
+
+/* All pages: all headings are black */
+.black-text,
+button {
+    color: black;
+}
+
+/* All pages: class for bold text */
+.bold-text {
+    font-weight: bolder;
+}
+
+/* All pages: class for centred text */
+.center-text {
+    text-align: center;
+}
+
+/* All pages: for all underlined text in h element */
+.underline {
+    text-decoration: underline double black;
+}
+
+.heading-title {
+    margin-bottom: .5em;
+}
+
+/* Homepage: masthead title */
+h1.project-title {
+    font-size: 2.1rem;
+}
+
+span.home-cursive {
+    font-family: "Montez", cursive;
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+span.home-color {
+    color: #FF6B61;
+}
+
+/* Homepage: project members */
+p.credits {
+    font-size: .75rem;
+    line-height: 1.3;
+}
+
+p.caption {
+    font-weight: lighter;
+}
+
+div.project-info-div > p.credits {
+    margin-bottom: .3em;
+}
+
+/* Story page: large text */
+
+span.large-text {
+    font-size: 6rem;
+}
+
+.main-title {
+    margin-bottom: 1.5em;
+}
+
+.sub-section .heading-title {
+    margin-top: 2em;
+}
+
+
+/* FONT COLOR */
+
+/* All pages: default font color */
+* {
+    color: #4d4d4d;
+}
+
+.white-font {
+    color: white;
+}
+
+
+/* LINKS */
+
+/* All pages */
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+/* All pages */
+button,
+a {
+    cursor: pointer;
+}
+
+
+
+
+
+/* ------------------ UNPROCESSED --------------- */
+
+/* CLASS TOGGLE BUTTONS */
+
+.active {
+    background: #27b500;
+}
+
+/* SCROLL */
+
+#part-1 {
+    width: 100%;
+    height: 100%;
+    
+}
+
+#container {
+    position: relative;
+    overflow: auto;
+    padding: 0 5em 0 5em;
+}
+
+#sections {
+    float:right;
+    width: 35%;
+    z-index: 70;
+    position: relative;
+}
+
+#graph {
+    width: 65%;
+    top: 3em;
+    z-index: 70;
+    position: fixed;
+}
+
+.graph-scroll-fixed #graph {
+    position: fixed;
+    top: 3em;
+}
+
+/* Adjusting so that to make text at the same level of graph */
+div.intro-div {
+    margin-top: 13em;
+}
+
+.graph-scroll-below #graph {
+  position: absolute;
+  bottom: 0;
+}
+
+#part-2 {
+    margin-top: 0;
+}
+
+#sections > div {
+  opacity: .1;
+} 
+
+#sections div.graph-scroll-active {
+  opacity: 1;
+}
+
+#sections > div:last-child {
+  margin-bottom: 20em;
+}
+
+/* etc on scroll */
+
+.sub-section {
+    margin-bottom: 5em;
+}
+
+.story-paragraphs {
+    margin-bottom: 1.5em;
+}
+
+/* Centre paragraphs without graphs */
+.story-paragraphs.one-column-text,
+.one-column-text {
+    width: 60%;
+    margin: auto;
+}
+
+#part-3 .sub-section,
+#part-2 .sub-section {
+    margin-bottom: .5em;
+}
+
+.test-image {
+    width: 60%;
+    height: 60%;
+    display: block;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* MAP ELEMENTS*/
+
+#sliderContainer {
+    position: absolute;
+    top: 130px;
+    left: 0;
+}
+
+/* Set slider properties */
+#timeSlide {
+    /* Override default CSS styles */
+    -webkit-appearance: none; 
+    appearance: none;
+    /* Specify height */
+    height: 1em; 
+    background: #d3d3d3;
+    /* Remove outline */
+    outline: none;
+    border-radius: 25em;
+}
+
+/* Set slider handle properties */
+#timeSlide::-moz-range-thumb {
+    width: 1.2em; 
+    height: 1.6em;
+    background: #4d4d4d;
+    cursor: crosshair;
+}
+
+input[type=range]::-moz-focus-outer {
+    border: 0;
+}
+
+#sliderContainer.connection-map-slider,
+#sliderContainer.choropleth-map-slider {
+    visibility: show;
+}
+
+.graph-texts {
+    font-size: .8rem;
+    fill: #4d4d4d;
+}
+
+div.tooltip-text-div {
+    z-index: 95;
+    position: absolute;
+    text-align: left;
+    width: 15em;
+    height: auto;
+    padding: 1em;
+    background-color: white;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    border: #a3a3a3 solid .05em;
+    border-radius: .5em;
+    line-height: 1.5;
+    color: black;
+    font-size: .9rem;
+}
+
+div.tooltip-text-div > .country-name-tooltip {
+    font-size: 1.1rem;
+}
+
+
+.tooltip-text-label {
+    color: #7a7979;
+}
+
+
+
+#part-2 {
+    padding-top: 10em;
+}
+
+#part-3 {
+    padding-top: 10em;
+}

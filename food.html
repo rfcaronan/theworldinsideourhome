@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The World Inside Our Home</title>
+    <!-- Standard meta -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google font link -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+    <!-- Load d3.js -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.js"></script>
+
+    <!-- Scrollmagic -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="body-container">
+    <!-- START OF HEADER BUTTONS FOR STORY PAGES -->
+        <!-- Project masthead -->
+        <div class="heading-container">
+            <!-- Project title -->
+            <div class="project-title">
+                <h1 class="project-title black-text bold-text center-text no-line-height">The World Inside Our <span class="home-cursive home-color">Home</span></h1>
+            </div>
+            <!-- Industry buttons -->
+            <div class="header-buttons">
+                <!-- <div class="vertical-top"></div> -->
+                <div class="header-button-div" id="header-button-div">
+                        <a href="#part-1"><button id="sec1Button" class="buttonA">Where do we source our food</button></a>
+                        <a href="#part-2"><button id="sec2Button" class="buttonA">How much food do we consume</button></a>
+                        <a href="#part-3"><button id="sec3Button" class="buttonA">We dig deeper into food</button></a>
+                        <a href="index.html"><button id="homeButton" class="buttonA home-button">Home</button></a>
+                </div>
+            </div>
+        </div>
+        <!-- END OF HEADER BUTTONS FOR STORY PAGES -->
+        
+        
+        <!-- START OF STORY PAGE -->
+        <div id="part-1">
+            <div id="container" class="container-1">
+                <div id="sections">
+
+                    <div class="sub-section intro-div">
+                        <p class="no-margin-bottom">Around 50% of all food consumed in the UK are imported from a total of</p>
+
+                        <p class="no-margin-bottom no-line-height"><span class="large-text bold-text no-line-height">206</span> <br></p>
+
+                        <p class="">countries and territories in the last decade. Wine, ketchup and sauces, and other condiments, pastry, chocolate, cheese, meat, bananas, grapes, and tomatoes are the UK’s most valuable food import. These products totalled more than £21.9 billion, or 50% of the total £43.52 billion import amount in 2017.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <p class="story-paragraphs"></p>
+                    </div>
+
+                    <div class="sub-section last-section">
+                        <h3 class="heading-title black-text">What does food say about us</h3>
+                        <p class="story-paragraphs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+                        <p class="story-paragraphs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+                    </div>
+
+                    <div class="sub-section last-section">
+                        <h3 class="heading-title black-text">What does food say about us</h3>
+                        <p class="story-paragraphs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+                        <p class="story-paragraphs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+                    </div>
+                </div>
+
+                <!-- Vis goes here -->
+                <div id="graph"></div>
+            </div>
+
+            <!-- <div id="container" class="container-2">
+                <div id="sections">
+                    <div class="sub-section">
+                        <p class="story-paragraphs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+                    </div>
+                        
+                </div> -->
+
+                <!-- Vis goes here -->
+                <div id="graph"></div>
+            </div>
+        </div>
+        <div id="part-2">
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+            </div>
+             <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+            </div>
+            <img src="images/base_black-and-white.png" class="test-image">
+        </div>
+
+        <div id="part-3">
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+            </div>
+             <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem mollitia repellat ullam saepe provident reiciendis unde dolorem, magni veniam totam. Necessitatibus asperiores, dolore voluptas reprehenderit assumenda atque nobis cumque reiciendis!</p>
+            </div>
+            <img src="images/base_black-and-white.png" class="test-image">
+        </div>
+
+        <div class="credits-div">
+            <p class="credits one-column-text">Text and Graphics by <span class="bold-text">ROWENA CARONAN</span></p>
+        </div>
+    </div>
+    <!-- END OF STORY PAGE -->
+
+    <!-- START OF JAVASCRIPT LINKS -->
+    <!-- Visualisation -->
+    <script type="text/javascript" src="js/foodmaps.js"></script>
+    <script type="text/javascript" src="js/classtoggle.js"></script>
+    <!-- Graph-scroll -->
+    <script type="text/javascript" src="js/d3v4+jetpack.js"></script>
+    <script type="text/javascript" src="js/graph-scroll.js"></script>
+    <!-- <script type="text/javascript" src="scroll1.js"></script> -->
+    <!-- END OF JAVASCRIPT LINKS -->
+
+</body>
+</html>
