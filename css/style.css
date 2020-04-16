@@ -92,6 +92,17 @@ div.project-info-div {
     padding-top: 1.2em;
 }
 
+.credits-info {
+    padding-top: 1.2em;
+}
+.credits-div > div:last-child {
+    padding-bottom: 5em;
+}
+
+#part-3 > div:last-child {
+    padding-bottom: 5em;
+}
+
 span.text-with-box-border {
     padding: .2em .4em;
 }
@@ -124,7 +135,7 @@ div.credits-div:before {
     content: " ";
     background: black;
     height: 5px;
-    width: 30%;
+    width: 20%;
     position: absolute;
 }
 
@@ -557,7 +568,6 @@ div.intro-div {
 }
 
 
-
 /* MAP ELEMENTS*/
 
 #sliderContainer {
@@ -625,8 +635,6 @@ div.tooltip-text-div > .country-name-tooltip {
 .tooltip-text-label {
     color: #7a7979;
 }
-
-
 
 #part-2 {
     padding-top: 10em;
