@@ -16,7 +16,7 @@ Go back to “Home” to explore other industries or go to “About” to check 
 
 For the food industry, we sourced the trade data from the [Food and Agriculture Organization (FAO)](http://www.fao.org/faostat/en/#data/TM) of the United Nations and the UK food self-sufficiency data from the [Department for Environment, Food and Rural Affairs (DEFRA)](https://www.gov.uk/government/statistical-data-sets/agriculture-in-the-united-kingdom). The average exchange rates and GDP deflator from 2007 to 2017 were obtained from the [Office for National Statistics (ONS)](https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/timeseries/auss/mret/previous) and [HM Treasury](https://www.gov.uk/government/statistics/gdp-deflators-at-market-prices-and-money-gdp-march-2020-budget), respectively.
 
-The 249 codes in ISO 3166 are located on the website of the [International Organization for Standardization(ISO)] (https://www.iso.org/obp/ui/#search).
+The 249 codes in ISO 3166 are located on the website of the [International Organization for Standardization(ISO)](https://www.iso.org/obp/ui/#search).
 
 ## Data processing
 
