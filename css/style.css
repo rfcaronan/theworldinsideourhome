@@ -6,11 +6,15 @@
     padding: 0;
 }
 
-body {
-    padding: 0em 1.5em;
-    overflow: auto;
+html {
+    width: 99%;
+    margin: auto;
 }
 
+body {
+    padding: 0em 1.5em 0 1.5em;
+
+}
 
 /* BORDERS AND BACKGROUND */
 
@@ -29,7 +33,6 @@ button,
     border-radius: 1.5em 1.5em 17em 1.5em/1.5em 17em 1.5em 1.5em;
 }
 
-
 /* All pages: background of header */
 div.heading-container {
     background-color: white;
@@ -37,10 +40,13 @@ div.heading-container {
 
 /* Homepage: initial state of home button */
 .selected,
-/* All home buttons will have the same background color when hovered */
+/* All home and about buttons will have the same background color when hovered */
 button.home-button:hover,
+button.about-button:hover,
 /* Homepage: link in popups */
-a.grey-hover:hover {
+a.grey-hover:hover,
+/* All links with underline when hovered */
+.text-with-underline:hover {
     background: #cecece;
 }
 
@@ -77,39 +83,31 @@ button {
     margin: 1em .5em 0 .5em;
 }
 
-/* Homepage: set position of project members and date */
-div.project-intro,
-div.project-info-div {
-    margin-top: 0em;
-}
-
-.intro-text {
-    padding-bottom: 2em;
-}
-
-.heading-container,
-.project-info {
-    padding-top: 1.2em;
-}
-
-.credits-info {
-    padding-top: 1.2em;
-}
-.credits-div > div:last-child {
-    padding-bottom: 5em;
-}
-
-#part-3 > div:last-child {
-    padding-bottom: 5em;
-}
-
+/* All pages: Any text inside para with box design */
 span.text-with-box-border {
     padding: .2em .4em;
 }
 
+/* All pages: Adjust spacing atop the masthead name */
+.heading-container {
+    padding-top: 1em;
+}
+
+/* All pages: Adjust spacing between paragraphs */
+p {
+    margin-bottom: 1em;
+}
+p.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+/* Homepage: adjust spacing between the line and credits */
+.project-info {
+    padding-top: 1.9em;
+}
+
 /* Homepage: make a line dividing project intro text
 and project members and date */
-/* Story page: make a line before credits */
 
 div.project-info-div:before {
     content: " ";
@@ -117,34 +115,7 @@ div.project-info-div:before {
     height: 5px;
     width: 30%;
     position: absolute;
-}
-
-/* Story pages: make a line at the back of buttons */
-div.industry-buttons:before{
-    content: " ";
-    background: black;
-    left: 20em;
-    height: 3px;
-    width: 55vw;
-    top: 7em;
-    z-index: -1;
-    position: fixed;
-}
-
-div.credits-div:before {
-    content: " ";
-    background: black;
-    height: 5px;
-    width: 20%;
-    position: absolute;
-}
-
-.left-side-container {
-    top: 9em;
-}
-
-.right-side-container {
-    top: 10em;
+    margin-top: 1em;
 }
 
 /* Homepage: popups and inside of popups */
@@ -157,19 +128,94 @@ a.popup-link {
 }
 
 span.popup-link {
-    margin-top: 1.5em;
+    margin-top: 1em;
+}
+
+/* Homepage: popup titles */
+div.popup-div > .main-title {
+    margin-bottom: .5em;
+}
+
+/* Story pages: credits at the end of the story */
+.credits-info {
+    padding-top: 1.2em;
+}
+
+/* Homepage: div of homepage */
+
+.left-side-container {
+    top: 9em;
+}
+
+.right-side-container {
+    top: 9em;
+}
+
+/* Story pages: create an empty div at the end of the story */
+.credits-div:after {
+    content: "";
+    background: white;
+    height: 12em;
+    width: 60%;
+    position: absolute;
+}
+
+/*Story pages: create empty div after the acknowledgment section */
+#part-3 > div:last-child {
+    padding-bottom: 5em;
 }
 
 /* Story pages: make a line at the back of buttons */
-div.header-button-div:before{
+div.industry-buttons:before{
+    content: " ";
+    background: black;
+    left: 20em;
+    height: 3px;
+    width: 54vw;
+    top: 7em;
+    z-index: -1;
+    position: fixed;
+}
+
+/* Story pages: make a line at the bottom of the story before credits*/
+div.credits-div:before {
+    content: " ";
+    background: black;
+    height: 5px;
+    width: 20%;
+    position: absolute;
+}
+
+/* About page: create an empty div at the bottom of about page */
+div#part-5-about:after {
+    content: "";
+    background: white;
+    height: 15em;
+    width: 60%;
+    position: absolute;
+
+}
+
+/* Story pages: make a line at the back of buttons */
+div.header-buttons:before{
     content: " ";
     background: black;
     left: 0;
     height: 3px;
-    width: 97vw;
+    width: 100vw;
     top: 7em;
     z-index: -1;
     position: absolute;
+}
+
+/* About page: section titles */
+h2.main-title {
+    margin-bottom: 2em;
+}
+
+/* Story pages: headings */
+.sub-section .heading-title {
+    margin-top: 2em;
 }
 
 /* POSITION AND ALIGNMENT OF ELEMENTS */
@@ -320,10 +366,6 @@ the size of text inside it */
     height: auto;
 }
 
-div.header-button-div {
-    width: 100%;
-}
-
 /* FONT FAMILY, SIZE, WEIGHT, ALIGNMENT */
 
 body {
@@ -334,14 +376,13 @@ body {
 p,
 button { 
     font-family: Open Sans, sans-serif;
-    font-size: .9rem;
-    line-height: 1.7;
+    font-size: 1rem;
     text-align: left;
-    margin-bottom: 1em;
+    line-height: 1.8; 
 }
 
-p.no-margin-bottom {
-    margin-bottom: 0;
+button {
+    line-height: 1.5;
 }
 
 .no-line-height {
@@ -409,6 +450,17 @@ span.home-color {
     color: #FF6B61;
 }
 
+/* Homepage: p element for intro and popups */
+div.intro-text > p,
+div.popup-div > p {
+    font-size: .9rem;
+}
+
+/* Homepage: popup titles */
+h2.main-title > span.large-text {
+    font-size: 2.2rem;
+}
+
 /* Homepage: project members */
 p.credits {
     font-size: .75rem;
@@ -419,24 +471,9 @@ p.caption {
     font-weight: lighter;
 }
 
-div.project-info-div > p.credits {
-    margin-bottom: .3em;
-}
-
-/* Story page: large text */
-
 span.large-text {
     font-size: 6rem;
 }
-
-.main-title {
-    margin-bottom: 1.5em;
-}
-
-.sub-section .heading-title {
-    margin-top: 2em;
-}
-
 
 /* FONT COLOR */
 
@@ -475,6 +512,10 @@ a {
 
 .active {
     background: #27b500;
+}
+
+.active-pink {
+    background: #FF6B61;
 }
 
 /* SCROLL */
@@ -542,12 +583,11 @@ div.intro-div {
     margin-bottom: 5em;
 }
 
-.story-paragraphs {
+p.story-paragraphs {
     margin-bottom: 1.5em;
 }
 
 /* Centre paragraphs without graphs */
-.story-paragraphs.one-column-text,
 .one-column-text {
     width: 60%;
     margin: auto;
