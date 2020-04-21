@@ -103,7 +103,7 @@ p.no-margin-bottom {
 
 /* Homepage: adjust spacing between the line and credits */
 .project-info {
-    padding-top: 1.9em;
+    padding-top: 2.4em;
 }
 
 /* Homepage: make a line dividing project intro text
@@ -120,7 +120,7 @@ div.project-info-div:before {
 
 /* Homepage: popups and inside of popups */
 div.popup-div {
-    padding: 1.5em;
+    padding: 1.2em;
 }
 
 a.popup-link {
@@ -210,7 +210,7 @@ div.header-buttons:before{
 
 /* About page: section titles */
 h2.main-title {
-    margin-bottom: 2em;
+    margin-bottom: 1.3em;
 }
 
 /* Story pages: headings */
@@ -291,7 +291,8 @@ img.house-images {
 .image-container .show-base,
 /* Homepage: show popups when button is clicked */
 .popup .show,
-.popup-text-container .show {
+.popup-text-container .show,
+.show-text {
     visibility: visible;
 }
 
@@ -389,6 +390,11 @@ button {
     line-height: 1;
 }
 
+div.sub-section > p.no-margin-bottom,
+.no-margin-bottom {
+    margin-bottom: 0
+}
+
 /* All pages: for all text in h element */
 h1,
 h2,
@@ -403,22 +409,20 @@ h6 {
 
 /* All pages: for headings */
 .heading-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .main-title {
-    font-size: 1.3rem;
-}
-
-/* All pages: all headings are black */
-.black-text,
-button {
-    color: black;
+    font-size: 1.4rem;
 }
 
 /* All pages: class for bold text */
 .bold-text {
     font-weight: bolder;
+}
+
+.italicized-text {
+    font-style: italic;
 }
 
 /* All pages: class for centred text */
@@ -432,7 +436,7 @@ button {
 }
 
 .heading-title {
-    margin-bottom: .5em;
+    margin-bottom: .6em;
 }
 
 /* Homepage: masthead title */
@@ -446,7 +450,7 @@ span.home-cursive {
     font-weight: bolder;
 }
 
-span.home-color {
+.home-color {
     color: #FF6B61;
 }
 
@@ -457,8 +461,8 @@ div.popup-div > p {
 }
 
 /* Homepage: popup titles */
-h2.main-title > span.large-text {
-    font-size: 2.2rem;
+h2.heading-title > span.large-text {
+    font-size: 1.8rem;
 }
 
 /* Homepage: project members */
@@ -480,6 +484,12 @@ span.large-text {
 /* All pages: default font color */
 * {
     color: #4d4d4d;
+}
+
+/* All pages: all headings are black */
+.black-font,
+button {
+    color: black;
 }
 
 .white-font {
@@ -541,19 +551,19 @@ a {
 
 #graph {
     width: 65%;
-    top: 3em;
+    top: 5.5em;
     z-index: 70;
     position: fixed;
 }
 
 .graph-scroll-fixed #graph {
     position: fixed;
-    top: 3em;
+    top: 5.5em;
 }
 
 /* Adjusting so that to make text at the same level of graph */
 div.intro-div {
-    margin-top: 13em;
+    margin-top: 12em;
 }
 
 .graph-scroll-below #graph {
@@ -605,7 +615,17 @@ p.story-paragraphs {
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
+}.test-image2 {
+    width: 40%;
+    height: 40%;
+    display: block;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+
+
 
 
 /* MAP ELEMENTS*/
@@ -651,11 +671,14 @@ input[type=range]::-moz-focus-outer {
     fill: #4d4d4d;
 }
 
+div.legend-text-div,
 div.tooltip-text-div {
-    z-index: 95;
+    z-index: 100;
+    left: 15em;
+    top: 30em;
     position: absolute;
     text-align: left;
-    width: 15em;
+    width: auto;
     height: auto;
     padding: 1em;
     background-color: white;
