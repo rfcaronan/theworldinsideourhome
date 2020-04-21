@@ -171,7 +171,7 @@ function render() {
 
     // Set map projection
     var projection = d3.geoRobinson()
-        .scale(2 *(width + 1) / 4.5 / Math.PI)
+        .scale(2 *(width + 1) / 5 / Math.PI)
         // Center the map in view
         .translate([width / 2.8, height / 2.4])
         // Rotate the map
@@ -498,7 +498,7 @@ function render() {
             var legendLineWidth1 = d3.legendSize()
                     .scale(scaleWidth)
                     .shape("path")
-                    .orient("horizontal")
+                    .orient("vertical")
                     .orient("bottom")
                     .title("Value in £")
                     .labelFormat(d3.format(".2s")
@@ -510,7 +510,7 @@ function render() {
                             return val
                         }
                     }*/)
-                    .shapePadding(30)
+                    .shapePadding(10)
                     .shapeWidth(20)
                     .labelAlign("center")
                     .cells(5)
@@ -518,7 +518,7 @@ function render() {
 
                 g1.append("g")
                     .attr("class","lineWidth-legendfood1 graph-texts")
-                    .attr("transform", "translate(0,94)")
+                    .attr("transform", "translate(0,355)")
                     .call(legendLineWidth1)
                     .attr("x", "20")
                     .attr("y", "20")
@@ -532,7 +532,7 @@ function render() {
             var legendLineWidth2 = d3.legendSize()
                 .scale(scaleWidth2)
                 .shape("path")
-                .orient("horizontal")
+                .orient("vertical")
                 .title("Value in tonnes")
                 .labelFormat(d3.format(".2s")
 
@@ -543,7 +543,7 @@ function render() {
                         return val
                     }
                 }*/)
-                .shapePadding(30)
+                .shapePadding(10)
                 .shapeWidth(10)
                 .labelAlign("center")
                 .cells(5)
@@ -551,7 +551,7 @@ function render() {
 
             g1.append("g")
                 .attr("class","lineWidth-legendfood2 graph-texts")
-                .attr("transform", "translate(0,94)")
+                .attr("transform", "translate(0,355)")
                 .call(legendLineWidth2)
         }
 
