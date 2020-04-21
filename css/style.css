@@ -551,19 +551,19 @@ a {
 
 #graph {
     width: 65%;
-    top: 5.5em;
+    top: 0em;
     z-index: 70;
     position: fixed;
 }
 
 .graph-scroll-fixed #graph {
     position: fixed;
-    top: 5.5em;
+    top: 0em;
 }
 
 /* Adjusting so that to make text at the same level of graph */
 div.intro-div {
-    margin-top: 12em;
+    margin-top: 9em;
 }
 
 .graph-scroll-below #graph {
