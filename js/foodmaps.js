@@ -2,20 +2,20 @@
 //https://www.d3-graph-gallery.com/graph/connectionmap_csv.html
 //http://bl.ocks.org/Andrew-Reid/35d89fbcfbcfe9e819908ea77fc5bef6
 
-var oldWidth = 0
+var oldWidth = 0;
 
 function render() {
 
  // Set size of map visualisation
-    if (oldWidth == innerWidth) return
-    oldWidth = innerWidth
+    if (oldWidth === innerWidth) {
+        return oldWidth = innerWidth}
 
     var width = height = d3
         .select("#graph")
         .node().offsetWidth
 
 
-    if (innerWidth <= 400){
+    if (innerWidth <= 400) {
         width = innerWidth
         height = innerHeight * .7
     }
