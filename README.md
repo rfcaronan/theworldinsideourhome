@@ -29,9 +29,9 @@ The list of ISO 3166 country codes was used as a reference for the total number 
 
 ## Collaborators
 
-Rowena Caronan – website design and development; map visualisation; research, writing, and graphics (food)
-Naimish Keswani –
-Maria Loar –
+Rowena Caronan – website design and development; map visualisation; research, writing, and graphics (food)  
+Naimish Keswani –  
+Maria Loar –  
 
 ## Acknowledgement
 
