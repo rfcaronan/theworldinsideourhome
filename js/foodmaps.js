@@ -15,7 +15,7 @@ function render() {
         .node().offsetWidth
 
 
-    if (innerWidth <= 900){
+    if (innerWidth <= 400){
         width = innerWidth
         height = innerHeight * .7
     }
@@ -153,6 +153,12 @@ function render() {
         .attr("class", "tooltip-text-div")
         .style("opacity", 0);
 
+    // Create div for caption
+    var titleTextDiv = d3.select("#graph")
+        .append("div")
+        .attr("class", "title-text-div")
+        .style("opacity", 0);
+
     // Create svg
     var svg1 = d3
         .select(".container-1 #graph")
@@ -171,9 +177,9 @@ function render() {
 
     // Set map projection
     var projection = d3.geoRobinson()
-        .scale(2 *(width + 1) / 5 / Math.PI)
+        .scale(2.2 *(width + 1) / 14)
         // Center the map in view
-        .translate([width / 2.8, height / 2.4])
+        .translate([width / 2.3, height / 4.2])
         // Rotate the map
         .rotate([-10, -5, 0])
         // Check meaning of precision https://github.com/d3/d3-geo
@@ -200,7 +206,7 @@ function render() {
         // Load import data file
         // On reading CSV files source: http://learnjsdata.com/v3/read_data.html
         .defer(d3.csv, "data/reduced_foodimport04142020.csv")
-        .defer(d3.csv, "data/reduced_foodimport_items_04142020.csv") 
+        .defer(d3.csv, "data/reduced_foodimport_items_04222020.csv") 
         //.defer(d3.csv, "data/food.csv") 
         .await(createMap);
 
@@ -283,9 +289,45 @@ function render() {
             .domain([1000, max_value])
             .range([0,15]);
 
+        var scaleWidth0 = d3
+            .scaleLinear()
+            .domain([0, 600000])
+            .range([0,15]);
+
+        var scaleWidth1 = d3
+            .scaleLinear()
+            .domain([0, 19000])
+            .range([0,15]);
+
         var scaleWidth2 = d3
             .scaleLinear()
-            .domain([1, 640000])
+            .domain([0, 5000])
+            .range([0,15]);
+
+        // also 8
+        var scaleWidth3 = d3
+            .scaleLinear()
+            .domain([0, 220000])
+            .range([0,15]);
+
+        var scaleWidth4 = d3
+            .scaleLinear()
+            .domain([0, 4000])
+            .range([0,15]);
+
+        var scaleWidth5 = d3
+            .scaleLinear()
+            .domain([0, 2500])
+            .range([0,15]);
+
+          var scaleWidth6 = d3
+            .scaleLinear()
+            .domain([0, 400000])
+            .range([0,15]);
+
+        var scaleWidth8 = d3
+            .scaleLinear()
+            .domain([0, 80000])
             .range([0,15]);
 
         // Scale radius of circles based on import quantity/value
@@ -318,17 +360,17 @@ function render() {
                 // All other lines disappear
                 d3.selectAll(".path-line")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 0)
                 // All points disappear
                 d3.selectAll(".dots")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 0)
                 // Only selected line shows up
                 d3.select(this)
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("fill", "none")
                     .style("opacity", 1)
                     .style("stroke-dasharray", ("6, 6"))
@@ -341,22 +383,22 @@ function render() {
             } else {
                 d3.selectAll(".path-line")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 0);
                 d3.selectAll(".dots")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 0);
                 d3.select(this)
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 1)
                     .attr("r", 8);
             }
                 tooltipTextDiv.transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 1)
-                tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName(d) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear(d) + "<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue(d) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume(d) + "<br/>" + "<span class = 'tooltip-text-label'> Live animals: </span>" + getImportCount(d) + "<br/>" + "<span class = 'tooltip-text-label'> Top import: </span>" + getProducts(d))
+                tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName(d) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear(d) + "<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue(d) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume(d) + "<br/>" + "<span class = 'tooltip-text-label'> Live animals: </span>" + getImportCount(d) + "<br/>" + "<span class = 'tooltip-text-label'> Top import: </span>" + getProducts(d))
                     //.style("left", (d3.event.pageX - 70) + "px")
                     //.style("top", (d3.event.pageY - 28) + "px");
         }
@@ -365,11 +407,11 @@ function render() {
             if (d3.select(this).attr("class") === "path-line") {
                 d3.selectAll(".path-line")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 1);
                 d3.selectAll(".dots")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 1);
                 d3.select(this)
                     .style("fill", "none")
@@ -378,18 +420,18 @@ function render() {
             } else {
                 d3.selectAll(".path-line")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 1);
                 d3.selectAll(".dots")
                     .transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 1);
                 d3.select(this)
                     .style("fill", "#27b500")
                     .attr("r", 6);
             }
             tooltipTextDiv.transition()
-                .duration(200)
+                .duration(300)
                 .style("opacity", 0);
 
         }
@@ -397,16 +439,16 @@ function render() {
         var mouseOver2 = function(d) {
             d3.selectAll(".country")
                 .transition()
-                .duration(200)
+                .duration(300)
                 .style("opacity", 0.5);
             d3.select(this)
                 .transition()
-                .duration(200)
+                .duration(300)
                 .style("opacity", 1);
             tooltipTextDiv.transition()
-                    .duration(200)
+                    .duration(300)
                     .style("opacity", 1)
-            tooltipTextDiv.html("<span class = 'bold-text black-text'>" +  d.properties.ADMIN + "</span>" + " imports cost " + " £" + d3.format(".2s")(d.total).replace("G", "B"))
+            tooltipTextDiv.html("<span class = 'bold-text black-font'>" +  d.properties.ADMIN + "</span>" + " imports cost " + " £" + d3.format(".2s")(d.total).replace("G", "B"))
                 //.style("left", (d3.event.pageX - 70) + "px")
                 //.style("top", (d3.event.pageY - 350) + "px");
             }
@@ -414,13 +456,13 @@ function render() {
         var mouseOut2 = function(d) {
             d3.selectAll(".country")
                 .transition()
-                .duration(200)
+                .duration(300)
                 .style("opacity", 1);
             d3.select(this)
                 .transition()
-                .duration(200);
+                .duration(300);
             tooltipTextDiv.transition()
-                .duration(200)
+                .duration(300)
                 .style("opacity", 0);
         }
 
@@ -518,19 +560,20 @@ function render() {
 
                 g1.append("g")
                     .attr("class","lineWidth-legendfood1 graph-texts")
-                    .attr("transform", "translate(0,355)")
+                    .attr("transform", "translate(0,180)")
                     .call(legendLineWidth1)
                     .attr("x", "20")
                     .attr("y", "20")
                     
         }
 
-        function legendLineWidthFood2() {
+        /*function legendLineWidthFood2() {
             // source: http://using-d3js.com/04_08_legends.html
             // source: https://d3-legend.susielu.com/
             
+
             var legendLineWidth2 = d3.legendSize()
-                .scale(scaleWidth2)
+                .scale(scaleWidth3)
                 .shape("path")
                 .orient("vertical")
                 .title("Value in tonnes")
@@ -542,7 +585,7 @@ function render() {
                     } else {
                         return val
                     }
-                }*/)
+                })
                 .shapePadding(10)
                 .shapeWidth(10)
                 .labelAlign("center")
@@ -551,9 +594,9 @@ function render() {
 
             g1.append("g")
                 .attr("class","lineWidth-legendfood2 graph-texts")
-                .attr("transform", "translate(0,355)")
+                .attr("transform", "translate(0,180)")
                 .call(legendLineWidth2)
-        }
+        }*/
 
         // Draw the map first to make it appear above another element
         var g1 = svg1.append("g");
@@ -707,7 +750,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "0") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth0(p[0][6])
                     } else {
                         return 0
                     }
@@ -718,17 +761,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -741,32 +784,32 @@ function render() {
                     } else {
                         d3.selectAll(".line_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     })
                 .on("mouseout", function() {
                     if (d3.select(this).attr("class") === "line_all_items") {
                         d3.selectAll(".line_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -775,18 +818,18 @@ function render() {
                     } else {
                         d3.selectAll(".line_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_all_items")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     });
 
@@ -818,23 +861,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_all_items")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_all_items")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -842,20 +885,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_all_items")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_all_items")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
 
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth0)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
             
             g1.selectAll(".path-line").remove()
             g1.selectAll(".dots_world").remove()
@@ -917,7 +988,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "7") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth3(p[0][6])
                     } else {
                         return 0
                     }
@@ -928,17 +999,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -951,22 +1022,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -974,11 +1045,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_meat") {
                         d3.selectAll(".line_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -987,21 +1058,21 @@ function render() {
                     } else {
                         d3.selectAll(".line_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_meat")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -1037,23 +1108,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_meat")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_meat")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -1061,19 +1132,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_meat")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_meat")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
+
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth3)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
 
             
             g1.selectAll(".path-line").remove()
@@ -1139,7 +1239,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "6") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth6(p[0][6])
                     } else {
                         return 0
                     }
@@ -1150,17 +1250,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -1173,22 +1273,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1196,11 +1296,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_potatoes") {
                         d3.selectAll(".line_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -1209,18 +1309,18 @@ function render() {
                     } else {
                         d3.selectAll(".line_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_potatoes")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -1256,23 +1356,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_potatoes")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0)
                     d3.selectAll(".dots_potatoes")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1280,19 +1380,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_potatoes")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_potatoes")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
+
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth6)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
 
             
             g1.selectAll(".path-line").remove()
@@ -1356,7 +1485,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "4") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth4(p[0][6])
                     } else {
                         return 0
                     }
@@ -1367,17 +1496,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -1390,22 +1519,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1413,11 +1542,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_leeks") {
                         d3.selectAll(".line_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -1426,21 +1555,21 @@ function render() {
                     } else {
                         d3.selectAll(".line_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_leeks")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -1476,23 +1605,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_leeks")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_leeks")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -1500,20 +1629,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_leeks")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_leeks")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
 
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth4)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
             
             g1.selectAll(".path-line").remove()
             g1.selectAll(".dots_world").remove()
@@ -1589,17 +1746,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -1612,22 +1769,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1635,11 +1792,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_carrots") {
                         d3.selectAll(".line_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -1648,21 +1805,21 @@ function render() {
                     } else {
                         d3.selectAll(".line_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_carrots")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -1698,23 +1855,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_carrots")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_carrots")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -1722,20 +1879,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_carrots")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_carrots")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
 
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth2)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
             
             g1.selectAll(".path-line").remove()
             g1.selectAll(".dots_world").remove()
@@ -1799,7 +1984,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "1") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth1(p[0][6])
                     } else {
                         return 0
                     }
@@ -1810,17 +1995,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -1833,22 +2018,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1856,11 +2041,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_cabbages") {
                         d3.selectAll(".line_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -1869,21 +2054,21 @@ function render() {
                     } else {
                         d3.selectAll(".line_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_cabbages")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -1919,23 +2104,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_cabbages")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_cabbages")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -1943,20 +2128,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_cabbages")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_cabbages")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
 
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth1)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
             
             g1.selectAll(".path-line").remove()
             g1.selectAll(".dots_world").remove()
@@ -2019,7 +2232,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "5") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth5(p[0][6])
                     } else {
                         return 0
                     }
@@ -2030,17 +2243,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -2053,22 +2266,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -2076,11 +2289,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_onions") {
                         d3.selectAll(".line_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -2089,21 +2302,21 @@ function render() {
                     } else {
                         d3.selectAll(".line_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_onions")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -2139,23 +2352,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_onions")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_onions")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -2163,19 +2376,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_onions")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_onions")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
+
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth5)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
 
             
             g1.selectAll(".path-line").remove()
@@ -2238,7 +2480,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "8") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth8(p[0][6])
                     } else {
                         return 0
                     }
@@ -2249,17 +2491,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -2272,22 +2514,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -2295,11 +2537,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_veg") {
                         d3.selectAll(".line_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -2308,21 +2550,21 @@ function render() {
                     } else {
                         d3.selectAll(".line_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_veg")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -2358,23 +2600,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_veg")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_veg")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -2382,19 +2624,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_veg")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_veg")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
+
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth8)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
 
             
             g1.selectAll(".path-line").remove()
@@ -2457,7 +2728,7 @@ function render() {
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(p) {
                     if (p[0][8] == "3") {
-                        return scaleWidth2(p[0][6])
+                        return scaleWidth3(p[0][6])
                     } else {
                         return 0
                     }
@@ -2468,17 +2739,17 @@ function render() {
                         // All other lines disappear
                         d3.selectAll(".line_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // All points disappear
                         d3.selectAll(".dots_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                         // Only selected line shows up
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("fill", "none")
                             .style("opacity", 1)
                             .style("stroke-dasharray", ("6, 6"))
@@ -2491,22 +2762,22 @@ function render() {
                     } else {
                         d3.selectAll(".line_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.selectAll(".dots_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0);
                         d3.select(this)
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 0)
                             .attr("r", 8);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -2514,11 +2785,11 @@ function render() {
                     if (d3.select(this).attr("class") === "line_food") {
                         d3.selectAll(".line_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "none")
@@ -2527,21 +2798,21 @@ function render() {
                     } else {
                         d3.selectAll(".line_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.selectAll(".dots_food")
                             .transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1);
                         d3.select(this)
                             .style("fill", "#27b500")
                             .attr("r", 6);
                     }
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     });
 
@@ -2577,23 +2848,23 @@ function render() {
                 .on("mouseover", function(p) {
                     d3.selectAll(".line_food")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.selectAll(".dots_food")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                     d3.select(this)
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     tooltipTextDiv.transition()
-                            .duration(200)
+                            .duration(300)
                             .style("opacity", 1)
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -2601,19 +2872,48 @@ function render() {
                 .on("mouseout", function(p) {
                     d3.selectAll(".line_food")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.selectAll(".dots_food")
                         .transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 1);
                     d3.select(this)
                         .transition()
-                        .duration(200);
+                        .duration(300);
                     tooltipTextDiv.transition()
-                        .duration(200)
+                        .duration(300)
                         .style("opacity", 0);
                 });
+
+            function legendLineWidthFood2() {
+                // source: http://using-d3js.com/04_08_legends.html
+                // source: https://d3-legend.susielu.com/
+                var legendLineWidth2 = d3.legendSize()
+                    .scale(scaleWidth3)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in tonnes")
+                    .labelFormat(d3.format(".2s")
+
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(10)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legendfood2 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth2)
+            }
 
             
             g1.selectAll(".path-line").remove()
@@ -2726,7 +3026,7 @@ function render() {
 
 
 
-        var pos = [createArc, createArcAllSelectedItems, createArcAllSelectedItems, createArcAllSelectedItems, createArcMeat, createArcPotatoes, createArcFood, createArcLeeks, createArcCarrots, createArcCabbages, createArcOnions, createArcVeg]
+        var pos = [createArc, createArc, createArcAllSelectedItems, createArcAllSelectedItems, createArcAllSelectedItems, createArcMeat, createArcMeat, createArcMeat, createArcLeeks, createArcLeeks, createArcPotatoes, createArcPotatoes, createArcCarrots, createArcCabbages, createArcOnions]
 
 
         var gs = d3.graphScroll()

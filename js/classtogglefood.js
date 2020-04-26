@@ -1,7 +1,7 @@
 // Story pages
 var controller = new ScrollMagic.Controller(
     {globalSceneOptions: {
-        duration: 7100
+        duration: 7500
     }
 });
 
@@ -16,7 +16,7 @@ new ScrollMagic.Scene({triggerElement: "#part-1"})
 // Story pages
 var controller2 = new ScrollMagic.Controller(
     {globalSceneOptions: {
-        duration: 840
+        duration: 2800
     }
 });
 
@@ -26,17 +26,30 @@ new ScrollMagic.Scene({triggerElement: "#part-2"})
     // Add class toggle
     .setClassToggle("#sec2Button", "active") 
     .addTo(controller2);
+
+// Story pages
+var controller3 = new ScrollMagic.Controller(
+    {globalSceneOptions: {
+        duration: 800
+    }
+});
+
+
+// build scenes
 new ScrollMagic.Scene({triggerElement: "#part-3"})
     // Add class toggle
     .setClassToggle("#sec3Button", "active")
-    .addTo(controller2);
+    .addTo(controller3);
+
+
+
 
 
 // About page
 
- var controller3 = new ScrollMagic.Controller(
+ var controller4 = new ScrollMagic.Controller(
 	{globalSceneOptions: {
-		duration: 300
+		duration: 400
 	}
 });
 
@@ -45,23 +58,23 @@ new ScrollMagic.Scene({triggerElement: "#part-3"})
 new ScrollMagic.Scene({triggerElement: "#part-1-about"})
 	// Add class toggle
     .setClassToggle("#about1Button", "active-pink")
-    .addTo(controller3);
+    .addTo(controller4);
 new ScrollMagic.Scene({triggerElement: "#part-2-about"})
 	// Add class toggle
     .setClassToggle("#about2Button", "active-pink") 
-    .addTo(controller3);
+    .addTo(controller4);
 new ScrollMagic.Scene({triggerElement: "#part-3-about"})
 	// Add class toggle
     .setClassToggle("#about3Button", "active-pink")
-    .addTo(controller3);
+    .addTo(controller4);
 new ScrollMagic.Scene({triggerElement: "#part-4-about"})
 	// Add class toggle
     .setClassToggle("#about4Button", "active-pink")
-    .addTo(controller3);
+    .addTo(controller4);
 new ScrollMagic.Scene({triggerElement: "#part-5-about"})
 	// Add class toggle
     .setClassToggle("#about5Button", "active-pink")
-    .addTo(controller3);
+    .addTo(controller4);
 
 
 
