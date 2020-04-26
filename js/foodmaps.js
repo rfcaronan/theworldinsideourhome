@@ -6,20 +6,19 @@ var oldWidth = 0;
 
 function render() {
 
-    var width = height = d3
-        .select("#graph")
-        .node().offsetWidth
-
-    if (innerWidth <= 400){
-        width = innerWidth
-        height = innerHeight * .7
-    }
-
  // Set size of map visualisation
     if (oldWidth === innerWidth) {
         return oldWidth = innerWidth}
 
-    
+    var width = height = d3
+        .select("#graph")
+        .node().offsetWidth
+
+
+    if (innerWidth <= 400) {
+        width = innerWidth
+        height = innerHeight * .7
+    }
 
     // Create lines instead of the usual path
     // On creating lines source:
@@ -72,7 +71,7 @@ function render() {
                 // Replace default “G” (for giga) suffix with “B” (for billions)
                 return d3.format(".2s")(val).replace("G", "B");
             } else {
-                return val
+            	return val
             }
         }
         formatMoney = function(val) { return "£" + d3.format(",")(val); }
@@ -123,7 +122,7 @@ function render() {
         if ((d[0][7]) == 1) {
             return (d[0][7]) + " head";
         } else if ((d[0][7]) > 1) {
-            return d3.format(",")(d[0][7]) + " heads";
+        	return d3.format(",")(d[0][7]) + " heads";
         } else {
             return "None";
         }

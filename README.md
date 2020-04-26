@@ -15,7 +15,7 @@ Go back to “Home” to explore other industries or go to “About” to check 
 ## Data sources
 
 For the food industry:
-Export and Import (Detailed Trade Matrix), Production (Live Animals, Livestock Primary, Crops) 2007–2017: [Food and Agriculture Organization (FAO) of the United Nations](http://www.fao.org/faostat/en/#data/TM)
+Export and Import (Detailed Trade Matrix) and Production (Live Animals, Livestock Primary, Crops), 2007–2017: [Food and Agriculture Organization (FAO) of the United Nations](http://www.fao.org/faostat/en/#data/TM)
 Detailed Household Expenditure By Countries and Regions: Table A35: [Office for National Statistics (ONS)](https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/detailedhouseholdexpenditurebycountriesandregionsuktablea35)
 Expenditure on Food and Non-Alcoholic Drinks By Place of Purchase: Table A2: [Office for National Statistics (ONS)]( https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/expenditureonfoodandnonalcoholicdrinksbyplaceofpurchaseukfinancialyearending2016tablea2)
 Average Sterling Exchange Rate: US Dollar: [Office for National Statistics (ONS)](https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/timeseries/auss/mret/previous)

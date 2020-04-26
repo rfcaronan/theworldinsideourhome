@@ -42,6 +42,9 @@ new ScrollMagic.Scene({triggerElement: "#part-3"})
     .addTo(controller3);
 
 
+
+
+
 // About page
 
  var controller4 = new ScrollMagic.Controller(
@@ -72,3 +75,7 @@ new ScrollMagic.Scene({triggerElement: "#part-5-about"})
 	// Add class toggle
     .setClassToggle("#about5Button", "active-pink")
     .addTo(controller4);
+
+
+
+
