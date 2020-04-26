@@ -27,82 +27,83 @@
 <body>
     <div id="body-container">
         <!-- Project masthead -->
-        <div class="heading-container" id="heading-container">
+        <div class="heading-container center-text" id="heading-container">
             <!-- Project title -->
             <div class="project-title">
-                <h1 class="project-title black-text bold-text center-text no-line-height">The World Inside Our <span class="home-cursive home-color">Home</span></h1>
+                <h1 class="project-title black-font bold-text center-text no-line-height">The World Inside Our <span class="home-cursive home-color">Home</span></h1>
             </div>
             <!-- Industry buttons -->
             <div class="industry-buttons">
-                <button id="buttonHome" class="selected pop-btn" type="button" value="Home">Home</button>
+                <button id="buttonAbout" class="about-button grey-hover" type="button" value="About"><a href="about.html">About</a></button>
+                <button id="buttonHome" class="selected pop-btn pink-hover" type="button" value="Home">Home</button>
                 <button id="buttonFood" class="popup pop-btn" type="button" value="Food">Food</button>
                 <button id="buttonTextile" class="popup pop-btn" type="button" value="Textile">Textile</button>
                 <button id="buttonWood" class="popup pop-btn" type="button" value="Wood">Wood</button>
             </div>
         </div>
 
-        <div class="main-main-container">
-            <div class="main-container">
-                <div class="left-side-container">
-                    <!-- Image of the house -->
-                    <div class="image-container">
-                        <img src="images/base_colored.png" class="house house-images" id="house">
-                        <img src="images/base_lines.png" alt="House Blueprint Black/White" class="house-base house-images" id="house-base">
-                        <img src="images/overlay_food.png" alt="Food Products" class="popupimg1 house-images" id="foodProducts">
-                        <img src="images/overlay_textile.png" alt="Textile Items" class="popupimg3 house-images" id="textileProducts">
-                        <img src="images/overlay_wood.png" alt="Wooden Furniture" class="popupimg2 house-images" id="woodProducts">
+        <div class="main-container main-container-flex">
+            <div class="left-side-container">
+                <!-- Image of the house -->
+                <div class="image-container">
+                    <img src="images/base_colored.png" alt="House Colored" class="house house-images" id="house">
+                    <img src="images/base_lines.png" alt="House Blueprint Black/White" class="house-base house-images" id="house-base">
+                    <img src="images/overlay_food.png" alt="Food Products" class="popupimg1 house-images" id="foodProducts">
+                    <img src="images/overlay_textile.png" alt="Textile Items" class="popupimg3 house-images" id="textileProducts">
+                    <img src="images/overlay_wood.png" alt="Wooden Furniture" class="popupimg2 house-images" id="woodProducts">
+                </div>
+            </div>
+            <div class="right-side-container popup-text-container">
+                <div class="project-intro" id="project-intro">
+                    <div class="intro-text">
+                        <p>Imagine this is your home.</p>
+                        
+                        <p>How many things inside it do you know the source of? How much do you know about these things? The things in our home are, in myriad ways, mysterious to most of us.</p>
+                        
+                        <p>We’re here to unfurl some of the mysteries rolled into the stories of our dependency on places and people around the world.</p>
+                        
+                        <p>We explore which countries we depend on for the things we have at home. We also look at what common things at home reveal about the world we live in.</p>
+                        
+                        <p>Select an <span class="text-with-box-border">industry</span> to start exploring.</p>
+                    </div>
+                    <div class="project-info-div">
+                        <!-- Project members and publication date -->
+                        <p class="project-info credits no-margin-bottom">BY <span class="bold-text">ROWENA F. CARONAN</span>, <span class="bold-text">NAIMISH KESWANI</span>, AND <span class="bold-text">MARIA LOAR</span></p>
+                        <p class="credits caption no-margin-bottom">Illustration of homes edited by <span class="bold-text">LARRY CAYCO for the team</span></p>
+                        <p class="credits no-margin-bottom">Published in MAY 2020</p>
                     </div>
                 </div>
-                <div class="right-side-container popup-text-container">
-                    <div class="project-intro" id="project-intro">
-                        <div class="intro-text">
-                            <p>Imagine this is your home.</p>
-                            
-                            <p>How many things inside it do you know where it came from? How much do you know about it? For many of us, the things in our home are, in many ways, mysterious to us.</p>
-                            
-                            <p>We’re here to unfurl some of the mysteries rolled into the stories of our dependency on places and people around the world.</p>
-                            
-                            <p>We explore which countries you depend on for the things you use at home. We also look at what common things at home reveal about the world we live in.</p>
-                            
-                            <p>Select an <span class="text-with-box-border">industry</span> to start exploring.</p>
-                        </div>
-                        <div class="project-info-div">
-                            <!-- Project members and publication date -->
-                            <p class="project-info credits">BY <span class="bold-text">ROWENA F. CARONAN</span>, <span class="bold-text">NAIMISH KESWANI</span>, AND <span class="bold-text">MARIA LOAR</span></p>
-                            <p class="credits caption">Illustration of homes edited by <span class="bold-text">LARRY CAYCO for the team</span></p>
-                            <p class="credits">© MAY 2020 </p>
-                        </div>
-                    </div>
-                    
-                    <div class="food-pop popup-div popup" id="foodpop">
-                        <h4 class="heading-title black-text bold-text center-text">The Food We Eat, Headline Here</h4>
-                        <p class="white-font">
-                            The UK imported food from 181 countries and territories in 2017. Six EU countries—Netherlands, Ireland, France, Germany, Spain, and Italy—were suppliers of already half of the total import bill of £43.52 billion. Wine, broths, ketchup, sauces, condiments, pastry, chocolate, cheese, and chicken were the top import into the UK. 
-                        </p>
-                        <p class="white-font">
-                            Explore what countries are connected to what you eat!
-                            <span class="popup-link black-text center-text bold-text"><a class="food-link popup-link black-text grey-hover" href="food.html">Explore</a></span>
-                        </p>
-                    </div>
+                
+                <div class="food-pop popup-div popup" id="foodpop">
+                    <h2 class="heading-title black-font bold-text center-text"><span class="black-font large-text">82%</span> of world’s countries and territories supply food to the UK</h2>
+                    <p class="white-font">
+                        The UK has imported food from a total of 204 countries and territories, or an average of 177 each year, in the last 10 years. Imports from seven EU countries—the Netherlands, Ireland, France, Germany, Spain, Italy, and Belgium—have consistently made up nearly two-thirds of the total import bill each year.
+                    </p>
 
-                    <div class="textile-pop popup-div popup" id="textilepop">
-                        <h4 class="heading-title black-text bold-text center-text">Textile At Home</h4>
-                        <p class="white-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        <span class="popup-link black-text center-text bold-text"><a class="textile-link popup-link grey-hover" href="textile.html">Explore</a></span></p>
-                    </div>
+                    <p class="white-font">
+                        Explore on the map the countries connected to what you eat!
+                        <span class="popup-link black-font center-text bold-text"><a class="food-link popup-link black-font grey-hover" href="food.html">Explore</a></span>
+                    </p>
+                </div>
 
-                    <div class="wood-pop popup-div popup" id="woodpop">
-                        <h4 class="heading-title black-text bold-text center-text">Wooden Items At Home</h4>
-                        <p class="white-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        <span class="popup-link black-text center-text bold-text"><a class="food-link popup-link grey-hover" href="wood.html">Explore</a></span></p>
-                    </div>
+                <div class="textile-pop popup-div popup" id="textilepop">
+                    <h4 class="heading-title black-font bold-text center-text">Textile At Home</h4>
+                    <p class="white-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <span class="popup-link black-font center-text bold-text"><a class="textile-link popup-link grey-hover" href="textile.html">Explore</a></span></p>
+                </div>
+
+                <div class="wood-pop popup-div popup" id="woodpop">
+                    <h4 class="heading-title black-font bold-text center-text">Wooden Items At Home</h4>
+                    <p class="white-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <span class="popup-link black-font center-text bold-text"><a class="food-link popup-link grey-hover" href="wood.html">Explore</a></span></p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- START OF JAVASCRIPT LINKS -->
-    <script type="text/javascript"src="js/script.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <!-- <script type="text/javascript"src="js/sticky.js"></script> -->
     <!-- END OF JAVASCRIPT LINKS -->
 </body>
 

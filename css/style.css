@@ -1,3 +1,4 @@
+
 /* BODY */
 
 /* Remove all margin and padding */
@@ -6,11 +7,15 @@
     padding: 0;
 }
 
-body {
-    padding: 0em 1.5em;
-    overflow: auto;
+html {
+    width: 100%;
+    margin: auto;
 }
 
+body {
+    padding: 0em 1.5em 0 1.5em;
+
+}
 
 /* BORDERS AND BACKGROUND */
 
@@ -29,18 +34,21 @@ button,
     border-radius: 1.5em 1.5em 17em 1.5em/1.5em 17em 1.5em 1.5em;
 }
 
-
 /* All pages: background of header */
-div.heading-container {
+div.heading-container,
+.section-buttons {
     background-color: white;
 }
 
 /* Homepage: initial state of home button */
 .selected,
-/* All home buttons will have the same background color when hovered */
+/* All home and about buttons will have the same background color when hovered */
 button.home-button:hover,
+button.about-button:hover,
 /* Homepage: link in popups */
-a.grey-hover:hover {
+a.grey-hover:hover,
+/* All links with underline when hovered */
+.text-with-underline:hover {
     background: #cecece;
 }
 
@@ -71,34 +79,42 @@ a.popup-link {
 
 /* MARGINS and PADDING */
 
+/* All pages: spacing between header and all divs below */
+div.heading-container {
+    margin-bottom: 1.5em;
+}
+
 /* All pages: Make the button rectangle and space them evenly */
 button {
     padding: .1em 1.2em;
     margin: 1em .5em 0 .5em;
 }
 
-/* Homepage: set position of project members and date */
-div.project-intro,
-div.project-info-div {
-    margin-top: 0em;
-}
-
-.intro-text {
-    padding-bottom: 2em;
-}
-
-.heading-container,
-.project-info {
-    padding-top: 1.2em;
-}
-
+/* All pages: Any text inside para with box design */
 span.text-with-box-border {
     padding: .2em .4em;
 }
 
+/* All pages: Adjust spacing atop the masthead name */
+.heading-container {
+    padding-top: 1em;
+}
+
+/* All pages: Adjust spacing between paragraphs */
+p {
+    margin-bottom: 1em;
+}
+p.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+/* Homepage: adjust spacing between the line and credits */
+.project-info {
+    padding-top: 2.4em;
+}
+
 /* Homepage: make a line dividing project intro text
 and project members and date */
-/* Story page: make a line before credits */
 
 div.project-info-div:before {
     content: " ";
@@ -106,39 +122,12 @@ div.project-info-div:before {
     height: 5px;
     width: 30%;
     position: absolute;
-}
-
-/* Story pages: make a line at the back of buttons */
-div.industry-buttons:before{
-    content: " ";
-    background: black;
-    left: 20em;
-    height: 3px;
-    width: 55vw;
-    top: 7em;
-    z-index: -1;
-    position: fixed;
-}
-
-div.credits-div:before {
-    content: " ";
-    background: black;
-    height: 5px;
-    width: 30%;
-    position: absolute;
-}
-
-.left-side-container {
-    top: 9em;
-}
-
-.right-side-container {
-    top: 10em;
+    margin-top: 1em;
 }
 
 /* Homepage: popups and inside of popups */
 div.popup-div {
-    padding: 1.5em;
+    padding: 1.2em;
 }
 
 a.popup-link {
@@ -146,34 +135,132 @@ a.popup-link {
 }
 
 span.popup-link {
-    margin-top: 1.5em;
+    margin-top: 1em;
+}
+
+/* Homepage: popup titles */
+div.popup-div > .main-title {
+    margin-bottom: .5em;
+}
+
+/* Story pages: credits at the end of the story */
+.credits-info {
+    padding-top: 1.2em;
+}
+
+/* Homepage: div of homepage */
+
+/*.left-side-container {
+    top: 9em;
+}
+.right-side-container {
+    top: 9em;
+}*/
+
+/* Story pages: create an empty div at the end of the story */
+.credits-div:after {
+    content: "";
+    background: white;
+    height: 12em;
+    width: 60%;
+    position: absolute;
+}
+
+/*Story pages: create empty div after the acknowledgment section */
+#part-3 > div:last-child {
+    padding-bottom: 5em;
+}
+
+/* Homepage: make a line at the back of buttons */
+/*    content: " ";
+    background: black;
+    left: 20em;
+    height: 3px;
+    width: 54vw;
+    top: 7em;
+    z-index: -1;
+    position: fixed;
+}*/
+
+/* Story pages: make a line at the bottom of the story before credits*/
+div.credits-div:before {
+    content: " ";
+    background: black;
+    height: 5px;
+    width: 10%;
+    position: absolute;
+}
+
+/* About page: create an empty div at the bottom of about page */
+div#part-5-about:after {
+    content: "";
+    background: white;
+    height: 15em;
+    width: 60%;
+    position: absolute;
+
 }
 
 /* Story pages: make a line at the back of buttons */
-div.header-button-div:before{
+/*div.section-buttons:before{
     content: " ";
     background: black;
     left: 0;
     height: 3px;
-    width: 97vw;
+    width: 100vw;
     top: 7em;
     z-index: -1;
     position: absolute;
+}*/
+
+/* About page: section titles */
+h2.main-title {
+    margin-bottom: 1.3rem;
 }
+
+/* Story pages: headings */
+.sub-section .heading-title {
+    margin-top: 2em;
+}
+
+/*About page: table*/
+
+td {
+    padding: .1em;
+}
+
 
 /* POSITION AND ALIGNMENT OF ELEMENTS */
 
 /* All pages: position of project title and buttons*/
 /* Fix the heading container at the top */
-div.heading-container {
+/*div.heading-container {
     position: fixed;
     top: 0;
     z-index: 100;
     text-align: center;
+}*/
+/* All pages: make buttons fixed at the top*/
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+}
+
+/* Add some top padding to the page content to prevent sudden
+quick movement
+.sticky + .content {
+  padding-top: 102px;
+}*/
+
+div.heading-container,
+.section-buttons {
+    z-index: 100;
 }
 
 /* Homepage: container for house images and project description text */
-div.main-container {
+div.main-container-flex {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -234,7 +321,8 @@ img.house-images {
 .image-container .show-base,
 /* Homepage: show popups when button is clicked */
 .popup .show,
-.popup-text-container .show {
+.popup-text-container .show,
+.show-text {
     visibility: visible;
 }
 
@@ -309,10 +397,6 @@ the size of text inside it */
     height: auto;
 }
 
-div.header-button-div {
-    width: 100%;
-}
-
 /* FONT FAMILY, SIZE, WEIGHT, ALIGNMENT */
 
 body {
@@ -321,20 +405,25 @@ body {
 
 /* All pages: for all text in p and button elements */
 p,
-button { 
+button,
+tr { 
     font-family: Open Sans, sans-serif;
-    font-size: .9rem;
-    line-height: 1.7;
+    font-size: 1rem;
     text-align: left;
-    margin-bottom: 1em;
+    line-height: 1.8; 
 }
 
-p.no-margin-bottom {
-    margin-bottom: 0;
+button {
+    line-height: 1.5;
 }
 
 .no-line-height {
     line-height: 1;
+}
+
+div.sub-section > p.no-margin-bottom,
+.no-margin-bottom {
+    margin-bottom: 0
 }
 
 /* All pages: for all text in h element */
@@ -351,22 +440,20 @@ h6 {
 
 /* All pages: for headings */
 .heading-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .main-title {
-    font-size: 1.3rem;
-}
-
-/* All pages: all headings are black */
-.black-text,
-button {
-    color: black;
+    font-size: 1.4rem;
 }
 
 /* All pages: class for bold text */
 .bold-text {
     font-weight: bolder;
+}
+
+.italicized-text {
+    font-style: italic;
 }
 
 /* All pages: class for centred text */
@@ -380,7 +467,7 @@ button {
 }
 
 .heading-title {
-    margin-bottom: .5em;
+    margin-bottom: .6em;
 }
 
 /* Homepage: masthead title */
@@ -394,13 +481,24 @@ span.home-cursive {
     font-weight: bolder;
 }
 
-span.home-color {
+.home-color {
     color: #FF6B61;
+}
+
+/* Homepage: p element for intro and popups */
+div.intro-text > p,
+div.popup-div > p {
+    font-size: .9rem;
+}
+
+/* Homepage: popup titles */
+h2.heading-title > span.large-text {
+    font-size: 1.8rem;
 }
 
 /* Homepage: project members */
 p.credits {
-    font-size: .75rem;
+    font-size: .8rem;
     line-height: 1.3;
 }
 
@@ -408,30 +506,21 @@ p.caption {
     font-weight: lighter;
 }
 
-div.project-info-div > p.credits {
-    margin-bottom: .3em;
-}
-
-/* Story page: large text */
-
 span.large-text {
     font-size: 6rem;
 }
-
-.main-title {
-    margin-bottom: 1.5em;
-}
-
-.sub-section .heading-title {
-    margin-top: 2em;
-}
-
 
 /* FONT COLOR */
 
 /* All pages: default font color */
 * {
     color: #4d4d4d;
+}
+
+/* All pages: all headings are black */
+.black-font,
+button {
+    color: black;
 }
 
 .white-font {
@@ -455,62 +544,58 @@ a {
 }
 
 
-
-
-
-/* ------------------ UNPROCESSED --------------- */
-
-/* CLASS TOGGLE BUTTONS */
-
+/* SCROLL */
+/* Class toggle buttons for story pages */
 .active {
     background: #27b500;
 }
 
-/* SCROLL */
-
-#part-1 {
-    width: 100%;
-    height: 100%;
-    
+/* Class toggle buttons for about page */
+.active-pink {
+    background: #FF6B61;
 }
 
 #container {
     position: relative;
     overflow: auto;
-    padding: 0 5em 0 5em;
+    padding: 0 1em 0 1em;
+}
+
+#graph, #sections {
+    padding-top: 1em;
 }
 
 #sections {
     float:right;
     width: 35%;
-    z-index: 70;
+    z-index: 80;
     position: relative;
 }
 
 #graph {
     width: 65%;
-    top: 3em;
-    z-index: 70;
+    z-index: 80;
     position: fixed;
 }
 
 .graph-scroll-fixed #graph {
     position: fixed;
-    top: 3em;
 }
 
+
 /* Adjusting so that to make text at the same level of graph */
-div.intro-div {
-    margin-top: 13em;
-}
+/*div.intro-div {
+    margin-top: 9em;
+}*/
 
 .graph-scroll-below #graph {
   position: absolute;
-  bottom: 0;
+  bottom:-20em;
+
 }
 
-#part-2 {
-    margin-top: 0;
+#sections {
+    margin-top: 5em;
 }
 
 #sections > div {
@@ -522,24 +607,16 @@ div.intro-div {
 }
 
 #sections > div:last-child {
-  margin-bottom: 20em;
+  margin-bottom:10em;
 }
 
 /* etc on scroll */
-
 .sub-section {
-    margin-bottom: 5em;
+    margin-bottom: 10em;
 }
 
-.story-paragraphs {
+p.story-paragraphs {
     margin-bottom: 1.5em;
-}
-
-/* Centre paragraphs without graphs */
-.story-paragraphs.one-column-text,
-.one-column-text {
-    width: 60%;
-    margin: auto;
 }
 
 #part-3 .sub-section,
@@ -547,16 +624,34 @@ div.intro-div {
     margin-bottom: .5em;
 }
 
-.test-image {
-    width: 60%;
-    height: 60%;
+.smaller-story-image {
+    width: 45%;
+    height: 45%;
+}
+
+.larger-story-image {
+    width: 50%;
+    height: 50%;
+}
+
+.story-image-within-scroll {
     display: block;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
 }
 
+/*#part-1 {
+    width: 100%;
+    height: 100%;
+    
+}*/
 
+/* Centre paragraphs without graphs */
+.one-column-text {
+    width: 60%;
+    margin: auto;
+}
 
 /* MAP ELEMENTS*/
 
@@ -601,16 +696,19 @@ input[type=range]::-moz-focus-outer {
     fill: #4d4d4d;
 }
 
+
 div.tooltip-text-div {
-    z-index: 95;
+    z-index: 100;
+    left: 30em;
+    top: 21.7em;
     position: absolute;
     text-align: left;
-    width: 15em;
+    width: auto;
     height: auto;
-    padding: 1em;
+    padding: .7em;
     background-color: white;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    border: #a3a3a3 solid .05em;
+    /*box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);*/
+    border: #a3a3a3 solid .08em;
     border-radius: .5em;
     line-height: 1.5;
     color: black;
@@ -618,20 +716,19 @@ div.tooltip-text-div {
 }
 
 div.tooltip-text-div > .country-name-tooltip {
-    font-size: 1.1rem;
+    font-size: .9rem;
 }
-
 
 .tooltip-text-label {
     color: #7a7979;
 }
 
-
-
-#part-2 {
-    padding-top: 10em;
-}
-
+#part-1-about,
+#part-2-about,
+#part-3-about,
+#part-4-about,
+#part-5-about,
+#part-2,
 #part-3 {
-    padding-top: 10em;
+    padding-top: 5em;
 }

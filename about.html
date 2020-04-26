@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The World Inside Our Home</title>
+    <!-- Standard meta -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google font link -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+    <!-- Load d3.js -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.js"></script>
+
+    <!-- Scrollmagic -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class ="body-container" id="body-container">
+    <!-- START OF HEADER BUTTONS FOR STORY PAGES -->
+        <!-- Project masthead -->
+        <div class="heading-container">
+            <!-- Project title -->
+            <div class="project-title">
+                <h1 class="project-title black-font bold-text center-text no-line-height">The World Inside Our <span class="home-cursive home-color">Home</span></h1>
+            </div>
+            <!-- Industry buttons -->
+            <div class="section-buttons center-text" id="header-buttons">
+                <!-- <div class="vertical-top"></div> -->
+                <button id="about1Button" class="buttonA"><a href="#part-1-about">The Project</a></button>
+                <button id="about2Button" class="buttonA"><a href="#part-2-about">Navigate This Site</a></button>
+                <button id="about3Button" class="buttonA"><a href="#part-3-about">Data Sources</a></button>
+                <button id="about4Button" class="buttonA"><a href="#part-4-about">Data Processing</a></button>
+                <button id="about5Button" class="buttonA"><a href="#part-5-about">Acknowledgement</a></button>
+                <button id="homeButton" class="buttonA home-button"><a href="index.html">Home</a></button>
+
+            </div>
+        </div>
+        <!-- END OF HEADER BUTTONS FOR STORY PAGES -->
+
+        <div class="main-container">
+            <div id="part-1-about">
+                <div class="sub-section-about intro-div">
+                    <h2 class="main-title black-font one-column-text">The Project</h2>
+
+                    <p class="story-paragraphs one-column-text">This is a project built as part of our coursework for MSc in Computational and Data Journalism at Cardiff University. It’s a work in progress.</p>
+
+                    <p class="story-paragraphs one-column-text">It offers analysis and visualisations of the symbiotic relationship, born of commodities, between the UK and other countries. We focus on the things we commonly have at home from three industries: food, textile, and wood. Our analysis and visualisations were based on 10-year data, if available and whenever necessary to the analysis. At the time this project was created, the latest available data was as of 2017.</p>
+                </div>
+            </div>
+
+            <div id="part-2-about">
+                <div class="sub-section-about">
+                    <h2 class="main-title black-font one-column-text">Navigate this site</h2>
+
+                    <p class="story-paragraphs one-column-text">Click either of the three main headings “Food,” “Textile,” or “Wood” on the homepage. This will highlight things we commonly have at home from a specific industry.</p>
+
+                    <p class="story-paragraphs one-column-text">To see the countries that import these things into the UK on the world map, click the “Explore” link on the right. The world map shows all importing countries in 2017 for the selected industry. The lines on the map are scaled according to either import value in pounds or import volume. On the map, click any country to view a list of the import statistics from that location. Other visualisations are shown along with text.</p>
+
+                    <p class="story-paragraphs one-column-text">Go back to “Home” to explore other industries.</p>
+                </div>
+            </div>
+
+            <div id="part-3-about">
+                <div class="sub-section-about">
+                    <h2 class="main-title black-font one-column-text">Data Sources</h2>
+
+                    <p class="story-paragraphs one-column-text">For the food industry:</p>
+
+                    <table class="one-column-text">
+                        <tr>
+                            <th class="center-text">Data</th>
+                            <th class="center-text">Source</th>
+                        </tr>
+                        <tr>
+                            <td>Production, 2007–2017</td>
+                            <td>Food and Agriculture Organization (FAO) of the United Nations:
+                                <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/QC">Crops</a></span>,
+                                <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/QA">Live Animals</a></span>,
+                                <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/QL">Livestock Primary</a></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Export and Import, 2007–2017</td>
+                            <td>Food and Agriculture Organization (FAO) of the United Nations:
+                                <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/TM">Detailed Trade Matrix</a></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Detailed Household Expenditure By Countries and Regions: Table A35</td>
+                            <td><span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/detailedhouseholdexpenditurebycountriesandregionsuktablea35">Office for National Statistics</a></span></td>
+                        </tr>
+                        <tr>
+                            <td>Expenditure on Food and Non-Alcoholic Drinks By Place of Purchase: Table A2</td>
+                            <td><span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/expenditureonfoodandnonalcoholicdrinksbyplaceofpurchaseukfinancialyearending2016tablea2">Office for National Statistics</a></span></td>
+                        </tr>
+                        <tr>
+                            <td>Average Sterling Exchange Rate: US Dollar</td>
+                            <td><span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/timeseries/auss/mret/previous">Office for National Statistics</a></span></td>
+                        </tr>
+                        <tr>
+                            <td>GDP Deflators at Market Prices, and Money GDP March 2020 (Budget)</td>
+                            <td><span class="text-with-underline grey-hover"><a href = "https://www.gov.uk/government/statistics/gdp-deflators-at-market-prices-and-money-gdp-march-2020-budget">HM Treasury</a></span></td>
+                        </tr>
+                        <tr>
+                            <td>ISO 3166 Country Codes</td>
+                            <td><span class="text-with-underline grey-hover"><a href="https://www.iso.org/iso-3166-country-codes.html">International Organization for Standardization</a></span></td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+            <div id="part-4-about">
+                <div class="sub-section-about">
+                    <h2 class="main-title black-font one-column-text">Data Processing</h2>
+
+                    <p class="story-paragraphs one-column-text">Trade values were converted into thousands, whenever applicable, and from dollars to pounds, using the appropriate exchange rate for a given year. Trade values adjusted for inflation in 2017 pounds were used in the analysis of over a 10-year period.</p>
+
+                    <p class="story-paragraphs one-column-text">The list of ISO 3166 country codes was used as a reference for the total number of countries and territories because it is comprehensive.</p>
+
+
+                </div>
+            </div>
+
+            <div id="part-5-about">
+                <div class="sub-section-about">
+                    <h2 class="main-title black-font one-column-text">Acknowledgement</h2>
+                    
+                    <p class="story-paragraphs one-column-text">This project was supported by our course coordinators Dr Aidan O’Donnell, from the School of Journalism, Media and Culture, and Dr Martin Chorley, from the School of Computer Science & Informatics.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- END OF STORY PAGE -->
+
+    <!-- START OF JAVASCRIPT LINKS -->
+    <script type="text/javascript" src="js/foodmaps.js"></script>
+    <script type="text/javascript" src="js/classtoggle.js"></script>
+    <script type="text/javascript" src="js/sticky.js"></script>
+    <!-- END OF JAVASCRIPT LINKS -->
+
+</body>
+</html>
