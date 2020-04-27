@@ -519,8 +519,7 @@ span.large-text {
 
 /* All pages: all headings are black */
 .black-font,
-button,
-button.black-font {
+button {
     color: black;
 }
 
