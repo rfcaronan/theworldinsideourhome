@@ -1,7 +1,7 @@
 // Story pages
 var controller = new ScrollMagic.Controller(
     {globalSceneOptions: {
-        duration: 7500
+        duration: 6000
     }
 });
 
@@ -16,7 +16,7 @@ new ScrollMagic.Scene({triggerElement: "#part-1"})
 // Story pages
 var controller2 = new ScrollMagic.Controller(
     {globalSceneOptions: {
-        duration: 2800
+        duration: 2600
     }
 });
 
@@ -62,18 +62,6 @@ new ScrollMagic.Scene({triggerElement: "#part-1-about"})
 new ScrollMagic.Scene({triggerElement: "#part-2-about"})
 	// Add class toggle
     .setClassToggle("#about2Button", "active-pink") 
-    .addTo(controller4);
-new ScrollMagic.Scene({triggerElement: "#part-3-about"})
-	// Add class toggle
-    .setClassToggle("#about3Button", "active-pink")
-    .addTo(controller4);
-new ScrollMagic.Scene({triggerElement: "#part-4-about"})
-	// Add class toggle
-    .setClassToggle("#about4Button", "active-pink")
-    .addTo(controller4);
-new ScrollMagic.Scene({triggerElement: "#part-5-about"})
-	// Add class toggle
-    .setClassToggle("#about5Button", "active-pink")
     .addTo(controller4);
 
 

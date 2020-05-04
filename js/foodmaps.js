@@ -534,16 +534,20 @@ function render() {
 
         var legpos = window.scrollY
 
+        
+
         // source: http://using-d3js.com/04_08_legends.html
         // source: https://d3-legend.susielu.com/
         function legendLineWidthFood1() {
+            var f = d3.format("0.2s")
+
             var legendLineWidth1 = d3.legendSize()
                     .scale(scaleWidth)
                     .shape("path")
                     .orient("vertical")
                     .orient("bottom")
                     .title("Value in £")
-                    .labelFormat(d3.format(".2s")
+                    .labelFormat(d3.format("0.2s")
 
                         /*function(val) {
                         if ( val > 1e6 ) {
@@ -3026,7 +3030,7 @@ function render() {
 
 
 
-        var pos = [createArc, createArc, createArcAllSelectedItems, createArcAllSelectedItems, createArcAllSelectedItems, createArcMeat, createArcMeat, createArcMeat, createArcLeeks, createArcLeeks, createArcPotatoes, createArcPotatoes, createArcCarrots, createArcCabbages, createArcOnions]
+        var pos = [createArc, createArcAllSelectedItems, createArcAllSelectedItems, createArcAllSelectedItems, createArcMeat, createArcMeat, createArcLeeks, createArcPotatoes, createArcCarrots, createArcCabbages, createArcOnions]
 
 
         var gs = d3.graphScroll()
