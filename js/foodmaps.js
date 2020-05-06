@@ -179,7 +179,7 @@ function render() {
     var projection = d3.geoRobinson()
         .scale(2.2 *(width + 1) / 14)
         // Center the map in view
-        .translate([width / 2.3, height / 4.2])
+        .translate([width / 2.3, height / 3.5])
         // Rotate the map
         .rotate([-10, -5, 0])
         // Check meaning of precision https://github.com/d3/d3-geo
@@ -398,7 +398,7 @@ function render() {
                 tooltipTextDiv.transition()
                     .duration(300)
                     .style("opacity", 1)
-                tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName(d) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear(d) + "<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue(d) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume(d) + "<br/>" + "<span class = 'tooltip-text-label'> Live animals: </span>" + getImportCount(d) + "<br/>" + "<span class = 'tooltip-text-label'> Top import: </span>" + getProducts(d))
+                tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName(d) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue(d) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume(d) + "<br/>" + "<span class = 'tooltip-text-label'> Live animals: </span>" + getImportCount(d) + "<br/>" + "<span class = 'tooltip-text-label'> Top import: </span>" + getProducts(d))
                     //.style("left", (d3.event.pageX - 70) + "px")
                     //.style("top", (d3.event.pageY - 28) + "px");
         }
@@ -690,8 +690,6 @@ function render() {
                 .on("mouseover", mouseOver1)
                 .on("mouseout", mouseOut1);
 
-            legendLineWidthFood1()
-
 
             //g1.selectAll(".path-line").remove()
             //g1.selectAll(".dots_world").remove()
@@ -803,7 +801,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     })
                 .on("mouseout", function() {
                     if (d3.select(this).attr("class") === "line_all_items") {
@@ -881,7 +879,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + [p[0][9]] +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -1041,7 +1039,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1128,7 +1126,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -1292,7 +1290,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1376,7 +1374,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1538,7 +1536,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1625,7 +1623,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -1788,7 +1786,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -1875,7 +1873,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -2037,7 +2035,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -2124,7 +2122,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -2285,7 +2283,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -2372,7 +2370,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -2533,7 +2531,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -2620,7 +2618,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 
@@ -2781,7 +2779,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
                     })
@@ -2868,7 +2866,7 @@ function render() {
                     tooltipTextDiv.transition()
                         .duration(300)
                         .style("opacity", 1)
-                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
+                    tooltipTextDiv.html("<span class = 'bold-text black-font country-name-tooltip'>" + getCountryName2(p) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Item: </span>" + getItemName(p) +"<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue2(p) + "<br/>" + "<span class = 'tooltip-text-label'> Volume: </span>" + getImportVolume2(p))
                     //.style("left", (d3.event.pageX - 100) + "px")
                     //.style("top", (d3.event.pageY - 590) + "px");
 

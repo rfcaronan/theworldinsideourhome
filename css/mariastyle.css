@@ -16,6 +16,7 @@ div.visualization {
   text-align: center;
 }
 
+span.text,
 .text {
   text-align: justify;
   line-height: 2;
@@ -27,6 +28,7 @@ div.visualization {
   padding-bottom: 1.5rem;
 }
 
+span.quote,
 .quote {
   font-style: italic;
   padding-left: 2rem;
@@ -38,11 +40,13 @@ q {
 }
 
 blockquote {
+  width: 65%;
   text-align: justify;
   line-height: 1.5;
   font-style: italic;
   padding-left: 2rem;
   padding-right: 2rem;
+  margin: auto;
 }
 
 h2 {

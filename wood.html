@@ -1,180 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>The World Inside Our Home</title>
     <!-- Standard meta -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS link -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
     <!-- CSS Wood Page -->
     <link rel="stylesheet" href="css/mariastyle.css" />
     <!-- Google font link -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montez&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+    <!-- Load d3.js -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.js"></script>
 
-  <body>
+    <!-- Scrollmagic -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
     <div id="body-container">
-      <!-- START OF HEADER BUTTONS FOR STORY PAGES -->
-      <!-- Project masthead -->
-      <div class="heading-container center-text">
-        <!-- Project title -->
-        <div class="project-title">
-            <h1 class="project-title black-font bold-text center-text no-line-height"><a href="index.html" class="black-font">The World Inside Our <span class="home-cursive home-color">Home</span></a></h1>
-        </div>
-        <!-- Industry buttons -->
-        <div class="section-buttons" id="header-buttons">
-          <!-- <div class="vertical-top"></div> -->
-          <button id="sec1Button" class="buttonA">
-            <a href="#part-1">Where does wood come from</a>
-          </button>
-          <button id="sec2Button" class="buttonA">
-            <a href="#part-2">History of trade</a>
-          </button>
-          <button id="sec3Button" class="buttonA">
-            <a href="#part-3">Wooden furniture in the UK</a>
-          </button>
-          <button id="homeButton" class="buttonA home-button">
-            <a href="index.html">Home</a>
-          </button>
-        </div>
-      </div>
-      <!-- END OF HEADER BUTTONS FOR STORY PAGES -->
-    </div>
+    <!-- START OF HEADER BUTTONS FOR STORY PAGES -->
+        <!-- Project masthead -->
+        <div class="heading-container center-text">
+            <!-- Project title -->
+            <div class="project-title">
+                <h1 class="project-title black-font bold-text center-text no-line-height"><a href="index.html" class="black-font">The World Inside Our <span class="home-cursive home-color">Home</span></a></h1>
+            </div>
+            <!-- Industry buttons -->
+            <div class="section-buttons" id="header-buttons">
+                <!-- <div class="vertical-top"></div> -->
+                <a href="#part-1"><button id="sec1Button" class="buttonA">Where does wood come from</button></a>
+                <a href="#part-2"><button id="sec2Button" class="buttonA black-font">History of trade</button></a>
+                <a href="#part-3"><button id="sec3Button" class="buttonA black-font">Wooden furniture in the UK</button></a>
+                <a href="index.html"><button id="homeButton" class="buttonA home-button black-font">Home</button></a>
+                <!-- <a href="about.html"><button id="buttonAbout" class="about-button grey-hover black-font" type="button" value="About">About</button></a> -->
 
-    <div id="content-container">
+            </div>
+        </div>
+        <!-- END OF HEADER BUTTONS FOR STORY PAGES -->
         
-      <div id="story-container">
-            <h3 class="main-title black-font header">
-            Made in the UK but Born on Planet Earth
-            </h3>
-            <p class="credits-info credits header">
-            Text and Visualizations by
-            <span class="bold-text">MARIA LAAR</span>
-            </p>
+        
+        <!-- START OF STORY PAGE -->
+        <div id="part-1">
+            <div id="container" class="container-1">
+                <div id="sections">
+                    
+                    <div class="sub-section intro-div">
+                        <h3 class="main-title black-font">Made in the UK but Born on Planet Earth</h3>
+                        <p class="credits-info credits">Text and Visualizations by <span class="bold-text">MARIA LAAR</span></p>
+                        <br>
 
-            <p id="part-1" class="text">
-                Rarely, when purchasing furniture for your home you come to think about the journey an item made to arrive at the store and then be delivered to your house. In 2017 the UK imported 9.2 million (m3) of wood. From the year 2008 until 2017 the UK imported 82.6 million (m3) of wood. The table, chair, wardrobe or even wooden picture frames that were given to you as a present all have a small sticker on them "Made in ...". A lot of the time those stickers say, "Made in the UK", however, the wood that was used to make that piece of furniture could have grown in Sweden, Germany or as far as China as the globe shows. 
-            </p>
-            <p class="text pre-vis">
-                The top 5 importing countries of wood to the UK in 2017 were Sweden, Russia, Canada, Finland and Latvia, with China, Ireland, Germany and Ukraine following. Wood was coming to the UK as far as from countries such as Guyana, Malaysia and Chile in the early 2000s. 
-            </p>
+                        <p class="story-paragraphs">Rarely, when purchasing furniture for your home you come to think about the journey an item made to arrive at the store and then be delivered to your house. In 2017 the UK imported 9.2 million (m3) of wood. From the year 2008 until 2017 the UK imported 82.6 million (m3) of wood.</p>
 
-            <!-- GLOBE VISUALISATION-->
-            <div class="visualization" id="part-2">
-                <div
-                    class="flourish-embed"
-                    data-src="visualisation/1541492"
-                    data-url="https://public.flourish.studio/visualisation/1541492/embed"
-                >
-                    <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    </div>
+
+                    <div class="sub-section intro-div">
+
+                        <p class="story-paragraphs">The table, chair, wardrobe or even wooden picture frames that were given to you as a present all have a small sticker on them "Made in ...". A lot of the time those stickers say, "Made in the UK", however, the wood that was used to make that piece of furniture could have grown in Sweden, Germany or as far as China as the globe shows.</p>
+
+                        <p class="story-paragraphs">The top 5 importing countries of wood to the UK in 2017 were Sweden, Russia, Canada, Finland and Latvia, with China, Ireland, Germany and Ukraine following. Wood was coming to the UK as far as from countries such as Guyana, Malaysia and Chile in the early 2000s.</p>
+
+                    </div>
+
+                    <div class="sub-section intro-div">
+
+
+                        <p class="story-paragraphs">If you drag the Year slider, it is visible how the number of countries and the amount of wood traded increases over the years. The UK has increased the number of countries that import wood into the UK steadily from 2008 until 2017. Regarding Export, the UK has exported over 160,000 m3 of wood to China, after which Export significantly decreased from the UK to all countries except Ireland.</p>
+                        
+
+                    </div>
+
+                    <div class="sub-section intro-div">
+                        <p class="story-paragraphs">What is interesting about trade with China is that in 2015, the National Measurement Office of the UK government released a report (prepared for DEFRA) called "Chinese Plywood enforcement project". It states that:
+                            <br>
+                            <span class="text quote">"As  a  result  of  industry  concerns  and  intelligence  in  this  area, this  project  focussed  on  plywood manufactured in China and placed on the market in the UK. Plywood is a product that potentially represents  an  area  of  high  risk,  due  to  long  supply  chains  and  the  species  used  in  production, being derived from illegally logged sources, notably Africa."</span>
+                        </p>
+                    </div>
+                    
+
+                    <div class="sub-section intro-div">
+                        <p class="story-paragraphs"><span class="text quote">"China is the world’s largest plywood producing and exporting country, making up 40% of China’s wood-based  panel  production.  In  the  UK,  plywood  from  China  makes  up  around  50%  of  tropical plywood  imports2and  the  Chinese  product  is  around  25-30%  cheaper  than  other  equivalent products  available.</span></p>
+                    </div>
+
+                    <div class="sub-section intro-div">
+                        <p class="story-paragraphs"><span class="text quote">The  Chinese  forestry  system  and  exploitation  of  domestic  forests  tend  to represent  a minor risk  due  to strong legislation and governance  as well as a low risk to the species harvested (poplar, eucalyptus) for plywood manufacturing. However, large volumes of tropical wood are imported into China from high risk areas (e.g. Papua New Guinea3or Africa4) specifically for the face and back veneers."</span></p>
+                    </div>
                 </div>
+
+                <!-- Vis goes here -->
+                <div id="graph"></div>
+            </div>
+        </div>
+        <div id="part-2">
+            <h3 class="heading-title black-font one-column-text">What are the popular types of raw wood imported to the UK?</h3>
+            <br>
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Import of wood from China has not decreased as the data shows, the UK only stopped the Export of its wood to China. So which wood is popular? The pie chart shows that Sawn wood has been the most imported type of wood to the UK every year from 2008 until 2017. Sawn wood is wood that has been cut lengthways into planks that are ready to be used in construction and furniture making, which was already cut and processed before importing it to the UK.</p>
             </div>
 
-
-            <p class="text">
-                If you drag the Year slider, it is visible how the number of countries and the amount of wood traded increases over the years. The UK has increased the number of countries that import wood into the UK steadily from 2008 until 2017. Regarding Export, the UK has exported over 160,000 m3 of wood to China, after which Export significantly decreased from the UK to all countries except Ireland. 
-            </p>
-            <p class="text">
-                What is interesting about trade with China is that in 2015, the National Measurement Office of the UK government released a report (prepared for DEFRA) called "Chinese Plywood enforcement project". It states that: <br>
-                <p class="text quote">
-                    "As  a  result  of  industry  concerns  and  intelligence  in  this  area, this  project  focussed  on  plywood manufactured in China and placed on the market in the UK. Plywood is a product that potentially represents  an  area  of  high  risk,  due  to  long  supply  chains  and  the  species  used  in  production, being derived from illegally logged sources, notably Africa."
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text pre-vis">Interestingly, Plywood and Industrial Roundwood are second largest imports. Why would the UK import raw wood from other countries if they can grow and cut their Roundwood locally? Steve Coombes, a Lecturer at Cardiff University in an interview said: 
+                    <blockquote>“There are complications in terms of processing it and transporting it around the country or the world, sometimes it is ecologically friendlier to ship wood from Norway or Sweden to the North of the UK than driving wood across the country.”</blockquote>
                 </p>
-                <p class="text quote">
-                    "China is the world’s largest plywood producing and exporting country, making up 40% of China’s wood-based  panel  production.  In  the  UK,  plywood  from  China  makes  up  around  50%  of  tropical plywood  imports2and  the  Chinese  product  is  around  25-30%  cheaper  than  other  equivalent products  available.  The  Chinese  forestry  system  and  exploitation  of  domestic  forests  tend  to represent  a minor risk  due  to strong legislation and governance  as well as a low risk to the species harvested (poplar, eucalyptus) for plywood manufacturing. However, large volumes of tropical wood are imported into China from high risk areas (e.g. Papua New Guinea3or Africa4) specifically for the face and back veneers."
-                </p>
-            </p>      
 
-            <h2>What are the popular types of raw wood imported to the UK?</h2>
+            </div>
 
-            <p class="text pre-vis">
-                Import of wood from China has not decreased as the data shows, the UK only stopped the Export of its wood to China. So which wood is popular? The pie chart shows that Sawn wood has been the most imported type of wood to the UK every year from 2008 until 2017. Sawn wood is wood that has been cut lengthways into planks that are ready to be used in construction and furniture making, which was already cut and processed before importing it to the UK.<br> 
-                Interestingly, Plywood and Industrial Roundwood are second largest imports. Why would the UK import raw wood from other countries if they can grow and cut their Roundwood locally? Steve Coombes, a Lecturer at Cardiff University in an interview said: 
-                <blockquote>“There are complications in terms of processing it and transporting it around the country or the world, sometimes it is ecologically friendlier to ship wood from Norway or Sweden to the North of the UK than driving wood across the country.”</blockquote> 
-            </p>  
-            <p>
-                It is important to pick the right transportation method depending on the location and what is sometimes seen as unsustainable can be the opposite.
-            </p>
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text"><br>It is important to pick the right transportation method depending on the location and what is sometimes seen as unsustainable can be the opposite.</p>
+            </div>
 
             <!-- PIE CHART SHOWING TYPE OF WOOD IMPORTED -->
-            <div class="visualization">
+            <div class="visualization one-column-text">
                 <div class='tableauPlaceholder' id='viz1588435877169' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ty&#47;TypeofWoodImported&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TypeofWoodImported&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ty&#47;TypeofWoodImported&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1588435877169');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                <br>
             </div>
 
-            <p class="text pre-vis">
-                The "Evolution of Trade" graph below shows that from 2009 there was a steady yearly increase in the import of wood to the UK. This was being fuelled by the apparent consumption calculated using the FAOSTAT Import, Export and Production data, both trends follow the same pattern. The graph also shows that the wood that is grown in the UK is mostly consumed in the UK. 2013 exports have gone down significantly, even during peak years (2011 and 2013), export constituted less than 10% of production.
-            </p>
+
+             <div class="sub-section">
+                <p class="story-paragraphs one-column-text">The "Evolution of Trade" graph below shows that from 2009 there was a steady yearly increase in the import of wood to the UK. This was being fuelled by the apparent consumption calculated using the FAOSTAT Import, Export and Production data, both trends follow the same pattern. The graph also shows that the wood that is grown in the UK is mostly consumed in the UK. 2013 exports have gone down significantly, even during peak years (2011 and 2013), export constituted less than 10% of production.</p>
+            </div>
 
             <!-- EVOLUTION/CONSUMPTION LINE GRAPH-->
-            <div class="visualization">
+            <div class="visualization one-column-text">
                 <div class="flourish-embed flourish-chart" data-src="visualisation/1550138" data-url="https://public.flourish.studio/visualisation/1550138/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
             </div>
-            <h2>What is the value of all this wood import?</h2>
-            <p>
-                The value of Imported wood supersedes that of Exported, UK's expenses exceed their profits by at least 2 Billion US Dollars ($), which is around 1.5 Billion Pounds (£). However, looking at the time scale, the value of wood has been dropping, which could mean more affordable wood products for the British population. The fall in the value of wood can also signify the decrease in demand for wood in wooden products or in construction, which in turn would make you think that less wood is being cut down which is better for the environment. But is that the case?
-            </p>
-            <div class="visualization">
+
+            <br>
+
+            <div class="sub-section">
+                <h3 class="black-font one-column-text">What is the value of all this wood import?</h3>
+                <br>
+                <p class="story-paragraphs one-column-text">The value of Imported wood supersedes that of Exported, UK's expenses exceed their profits by at least 2 Billion US Dollars ($), which is around 1.5 Billion Pounds (£). However, looking at the time scale, the value of wood has been dropping, which could mean more affordable wood products for the British population. The fall in the value of wood can also signify the decrease in demand for wood in wooden products or in construction, which in turn would make you think that less wood is being cut down which is better for the environment. But is that the case?</p>
+            </div>
+
+            <br>
+
+            <div class="visualization one-column-text">
                 <div class='tableauPlaceholder' id='viz1588438648883' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Va&#47;ValueofWood-ImportExport&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ValueofWood-ImportExport&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Va&#47;ValueofWood-ImportExport&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1588438648883');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1000px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1000px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
             </div>
-            <p class="text">
-                Following on from an Interview with Steve Coombes, after being asked a question whether generally, the UK moved on to other materials in furniture production and construction he replied: 
-                <blockquote>“The industrial revolution in the UK changed the way that we use timber. Before that, we were timber-based like other European countries. We went down that route for lots of reasons such as the fire of London, which changed the materials we use and we moved more towards bricks, steel and then concrete and glass and timber slightly lost its way.”</blockquote> 
-            </p>
-            <p class="text">
-                Nevertheless, even if the UK has moved more towards other materials in construction it remains a major part in the lives of the British. Furthermore, Steve Coombes believes timber is the <q>ultimate future material</q> for the changing environment and climate change. He adds: 
-                <blockquote>“It locks in carbon, its renewable it can grow anywhere. You can grow distinct species for different purposes, you can get different yield classes which is the time it takes to grow to be practically useable. Whereas oak takes a lot longer than a sicker spree tree, for example.”  </blockquote> 
-            </p>
-            <p class="text">
-                The takeaway - the most important aspect of wood usage is to make sure the wood comes from a sustainable source. If demand for wood increases, it is important to plant a tree (or more) for every tree that is being cut down. If the processing of wood is kept to a local level, it has the chance to aid the environment with reforestation which in turn will lock in more carbon. 
-            </p>
-            <h2 id="part-3">How much of wooden furniture is traded?</h2>
-            <p class="text">
-                According to the Comtrade database, in 2019 imports consisted of bedroom wooden furniture and wooden seats (upholstered with textile and non-upholstered). 13.3 million items were imported to the UK in 2019 alone for bedroom use, the combined import of wooden framed seats was 17 million. This amount would equal to 45% of the UK population, so 30 million people could buy one wooden seat or bedroom furniture item in 2019. Exports for the UK show that wooden furniture for kitchen use was exported most in 2019 in comparison to bedroom furniture and wooden seats, which can signal that people tend to change their bedroom furniture and seats more often than kitchen units which of course is a more complex process. The same trend can be seen throughout the years from 2008 until 2019. 
-            </p>
-            <p class="text pre-vis">
-                The numbers in 2008 are quite like in 2019, there is not much fluctuation in the number of wooden furniture imports. All years see imports higher than 23 million items. The total number imported is 240 million, that means every person in the UK can buy 3.5 new wooden furniture items in 11 years. 
-                
-            </p>
-            <div class="visualization">
-                <div class='tableauPlaceholder' id='viz1588443378389' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wo&#47;WoodenFurnitureTradeintheUK&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='WoodenFurnitureTradeintheUK&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wo&#47;WoodenFurnitureTradeintheUK&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1588443378389');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            <br>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Following on from an Interview with Steve Coombes, after being asked a question whether generally, the UK moved on to other materials in furniture production and construction he replied: 
+                <blockquote>“The industrial revolution in the UK changed the way that we use timber. Before that, we were timber-based like other European countries. We went down that route for lots of reasons such as the fire of London, which changed the materials we use and we moved more towards bricks, steel and then concrete and glass and timber slightly lost its way.”</blockquote> </p>
             </div>
-            <h2 class="format">What is the competitor?</h2>
-            <p class="text">
-                Since wooden kitchenware is the most exported product out of the other wooden furniture, it is interesting to see what type of kitchenware is imported for the British population. Of course, it is plastic items! Wooden cutlery and tableware are higher in imports than metal cutlery and tableware. This is surprising because cutlery, pots and pans are usually made of metal (such as aluminium). However, we can see the imports for wood are higher, which can indicate a higher demand for such products.
-            </p>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Nevertheless, even if the UK has moved more towards other materials in construction it remains a major part in the lives of the British. Furthermore, Steve Coombes believes timber is the <q>ultimate future material</q> for the changing environment and climate change. He adds: 
+                <blockquote>“It locks in carbon, its renewable it can grow anywhere. You can grow distinct species for different purposes, you can get different yield classes which is the time it takes to grow to be practically useable. Whereas oak takes a lot longer than a sicker spree tree, for example.”  </blockquote></p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">The takeaway - the most important aspect of wood usage is to make sure the wood comes from a sustainable source. If demand for wood increases, it is important to plant a tree (or more) for every tree that is being cut down. If the processing of wood is kept to a local level, it has the chance to aid the environment with reforestation which in turn will lock in more carbon.</p>
+            </div>
+
+        <div id="part-3">
+            <h3 class="heading-title black-font one-column-text">How much of wooden furniture is traded?</h3>
+            <br>
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">According to the Comtrade database, in 2019 imports consisted of bedroom wooden furniture and wooden seats (upholstered with textile and non-upholstered). 13.3 million items were imported to the UK in 2019 alone for bedroom use, the combined import of wooden framed seats was 17 million. This amount would equal to 45% of the UK population, so 30 million people could buy one wooden seat or bedroom furniture item in 2019. Exports for the UK show that wooden furniture for kitchen use was exported most in 2019 in comparison to bedroom furniture and wooden seats, which can signal that people tend to change their bedroom furniture and seats more often than kitchen units which of course is a more complex process. The same trend can be seen throughout the years from 2008 until 2019.</p>
+            </div>
+             <div class="sub-section">
+                <p class="story-paragraphs one-column-text">The numbers in 2008 are quite like in 2019, there is not much fluctuation in the number of wooden furniture imports. All years see imports higher than 23 million items. The total number imported is 240 million, that means every person in the UK can buy 3.5 new wooden furniture items in 11 years.</p>
+            </div>
+
+            <div class="visualization one-column-text">
+                <div class='tableauPlaceholder ' id='viz1588443378389' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wo&#47;WoodenFurnitureTradeintheUK&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='WoodenFurnitureTradeintheUK&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wo&#47;WoodenFurnitureTradeintheUK&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1588443378389');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
+
+            <br>
+
+            <h3 class="heading-title black-font one-column-text">What is the competitor?</h3>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Since wooden kitchenware is the most exported product out of the other wooden furniture, it is interesting to see what type of kitchenware is imported for the British population. Of course, it is plastic items! Wooden cutlery and tableware are higher in imports than metal cutlery and tableware. This is surprising because cutlery, pots and pans are usually made of metal (such as aluminium). However, we can see the imports for wood are higher, which can indicate a higher demand for such products.</p>
+            </div>
+
             <div>
-                <div class="flourish-embed flourish-chart" data-src="visualisation/1604232" data-url="https://public.flourish.studio/visualisation/1604232/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                <div class="flourish-embed flourish-chart one-column-text" data-src="visualisation/1604232" data-url="https://public.flourish.studio/visualisation/1604232/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
             </div>
-            <p class="text pre-vis">
-                To conclude, the furniture inside our homes are similar to the population of the UK. Some are born in the UK but have a heritage of other countries, some are born outside the UK but travel all the way across the world and settle in our houses. Looking closer, we truly have the world inside our homes!
-            </p>
-            
+
+            <br>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">To conclude, the furniture inside our homes are similar to the population of the UK. Some are born in the UK but have a heritage of other countries, some are born outside the UK but travel all the way across the world and settle in our houses. Looking closer, we truly have the world inside our homes!</p>
+            </div>
 
         </div>
+
+        <div class="credits-div one-column-text">
+            <br>
+            <p class="story-paragraphs">Please <span class="text-with-underline grey-hover"><a href="data.html">click here</a></span> for details on data sources and methodology.</p>
+        </div>
     </div>
-    <div class="credits-div one-column-text">
-        <br />
-        <p class="story-paragraphs">
-          Please <span class="text-with-underline grey-hover"><a href="about.html#part-3-about">click here</a></span> for details on data sources and methodology.
-        </p>
-    </div>
+    <!-- END OF STORY PAGE -->
+
+    <!-- START OF JAVASCRIPT LINKS -->
     <script type="text/javascript" src="js/sticky.js"></script>
-    <script src="js/classtogglewood.js"></script>
-  </body>
+    <!-- Visualisation -->
+    <script type="text/javascript" src="js/woodmaps.js"></script>
+    <script type="text/javascript" src="js/classtogglewood.js"></script>
+    <!-- Graph-scroll -->
+    <script type="text/javascript" src="js/d3v4+jetpack.js"></script>
+    <script type="text/javascript" src="js/graph-scroll.js"></script>
+    <!-- <script type="text/javascript" src="scroll1.js"></script> -->
+    <!-- END OF JAVASCRIPT LINKS -->
+
+</body>
 </html>

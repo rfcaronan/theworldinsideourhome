@@ -192,7 +192,7 @@ div.credits-div:before {
 }
 
 /* About page: create an empty div at the bottom of about page */
-div#part-2-about:after {
+div#part-3-about:after {
     content: "";
     background: white;
     height: 15em;
@@ -499,7 +499,7 @@ h2.heading-title > span.large-text {
 /* Homepage: project members */
 p.credits {
     font-size: .8rem;
-    line-height: 1.3;
+    line-height: 1.5;
 }
 
 p.caption {
@@ -548,6 +548,10 @@ a {
 /* Class toggle buttons for story pages */
 .active {
     background: #27b500;
+}
+
+.active-wood {
+    background: #DB874B;
 }
 
 /* Class toggle buttons for about page */
@@ -657,7 +661,7 @@ p.story-paragraphs {
 
 #sliderContainer {
     position: absolute;
-    top: 130px;
+    top: 1em;
     left: 0;
 }
 
@@ -700,7 +704,7 @@ input[type=range]::-moz-focus-outer {
 div.tooltip-text-div {
     z-index: 100;
     left: 30em;
-    top: 21.7em;
+    top: 22.7em;
     position: absolute;
     text-align: left;
     width: auto;
