@@ -244,7 +244,7 @@ function render() {
         var colorScale = d3
             .scaleQuantize()
             .domain([min_value,500000,1500000,2000000,max_value])
-            .range(d3.schemeOranges[7]);
+            .range(d3.schemeOranges[5]);
 
         function createSlider() {
                // Create slider
