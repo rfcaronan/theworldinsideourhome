@@ -139,9 +139,9 @@ function render() {
 
     // Set map projection
     var projection = d3.geoRobinson()
-        .scale(2 *(width + 1) / 4.5 / Math.PI)
+        .scale(2.2 *(width + 1) / 14)
         // Center the map in view
-        .translate([width / 2.8, height / 2.4])
+        .translate([width / 2.3, height / 3.5])
         // Rotate the map
         .rotate([-10, -5, 0])
         // Check meaning of precision https://github.com/d3/d3-geo
@@ -164,7 +164,7 @@ function render() {
         .defer(d3.json, "data/world.json")
         // Load import data file
         // On reading CSV files source: http://learnjsdata.com/v3/read_data.html
-        .defer(d3.csv, "data/D3DATAFORMAP.csv") 
+        .defer(d3.csv, "data/woodford3map.csv") 
         //.defer(d3.csv, "data/food.csv") 
         .await(createMap);
 
@@ -243,8 +243,8 @@ function render() {
         // Color scale
         var colorScale = d3
             .scaleQuantize()
-            .domain([min_value, max_value])
-            .range(d3.schemeBuGn[7]);
+            .domain([min_value,500000,1500000,2000000,max_value])
+            .range(d3.schemeOranges[7]);
 
         function createSlider() {
                // Create slider
@@ -291,7 +291,7 @@ function render() {
                 d3.selectAll(".dots")
                     .transition()
                     .duration(200)
-                    .style("opacity", 1);
+                    .style("opacity", 0);
                 d3.select(this)
                     .transition()
                     .duration(200)
@@ -302,8 +302,8 @@ function render() {
                     .duration(200)
                     .style("opacity", 1)
                 tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName(d) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear(d) + "<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue(d) + "<br/>" + "<span class = 'tooltip-text-label'> Top import: </span>" + getProducts(d))
-                    .style("left", (d3.event.pageX - 70) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
+                    //.style("left", (d3.event.pageX - 70) + "px")
+                    //.style("top", (d3.event.pageY - 28) + "px");
         }
 
         var mouseOut1 = function(d) {
@@ -329,7 +329,7 @@ function render() {
                     .duration(200)
                     .style("opacity", 1);
                 d3.select(this)
-                    .style("fill", "#27b500")
+                    .style("fill", "#DB874B")
                     .attr("r", 6);
             }
             tooltipTextDiv.transition()
@@ -350,9 +350,9 @@ function render() {
             tooltipTextDiv.transition()
                     .duration(200)
                     .style("opacity", 1)
-            tooltipTextDiv.html("<span class = 'bold-text black-text'>" +  d.properties.ADMIN + "</span>" + " imports cost " + " £" + d3.format(".2s")(d.total).replace("G", "B"))
-                .style("left", (d3.event.pageX - 70) + "px")
-                .style("top", (d3.event.pageY - 350) + "px");
+            tooltipTextDiv.html("UK imported " + d3.format(".1s")(d.total).replace("G", "B") + " m³ of wood products from <span class='bold-text black-font'>" +  d.properties.ADMIN + "</span>")
+                //.style("left", (d3.event.pageX - 70) + "px")
+                //.style("top", (d3.event.pageY - 350) + "px");
             }
 
         var mouseOut2 = function(d) {
@@ -393,7 +393,13 @@ function render() {
             } else {
                 d.total = 0;
             }
-            return colorScale(d.total);;
+
+            if (d.total != 0) {
+                return colorScale(d.total);
+            } else {
+                return "white";
+            }
+            
         }
 
 
@@ -412,26 +418,44 @@ function render() {
             } else {
                 d.total = 0;
             }
-            return colorScale(d.total);;
+
+            if (d.total != 0) {
+                return colorScale(d.total);
+            } else {
+                return "white";
+            }
         }
 
 
-        // When the map loads, set the intial map state to latest year
-        function initialYear(d){
-            var year_filter = data.filter(function(c) { 
-                return c.year == max_year;
-            });
-        
-            var country_data = year_filter.filter(function(e) {
-                return e.ISO3 === d.properties.ISO_A3_EH;
-            })[0];
+        // source: http://using-d3js.com/04_08_legends.html
+        // source: https://d3-legend.susielu.com/
+        function legendLineWidth1() {
+            var legendLineWidth = d3.legendSize()
+                    .scale(scaleWidth)
+                    .shape("path")
+                    .orient("vertical")
+                    .title("Value in m³")
+                    .labelFormat(d3.format(".2s")
 
-            if (country_data) {
-                d.total = country_data.value_m3;
-            } else {
-                d.total = 0;
-            }
-            return colorScale(d.total);;
+                        /*function(val) {
+                        if ( val > 1e6 ) {
+                            return formatSuffixDecimal2(val)
+                        } else {
+                            return val
+                        }
+                    }*/)
+                    .shapePadding(10)
+                    .shapeWidth(20)
+                    .labelAlign("center")
+                    .cells(5)
+                    .labelOffset(15);
+
+                g1.append("g")
+                    .attr("class","lineWidth-legend1 graph-texts")
+                    .attr("transform", "translate(0,180)")
+                    .call(legendLineWidth)
+                    .attr("x", "20")
+                    .attr("y", "20")
         }
 
         // Draw the map first to make it appear above another element
@@ -462,7 +486,7 @@ function render() {
                 .attr("d",line)
                 // This makes a straight line; without it, paths look like half moon
                 .style("fill", "none")
-                .style("stroke", "#27b500")
+                .style("stroke", "#DB874B")
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(d) {
                     if (d[0][4] == max_year) {
@@ -488,7 +512,7 @@ function render() {
                 .attr("orient", "auto")
                 .append("path")
                 .attr("d", "M 0, 0  m -5, 0  a 5,5 0 1,0 10,0  a 5,5 0 1,0 -10,0")
-                .style("fill", "#27b500");
+                .style("fill", "#DB874B");
 
             // Add points with tooltips
             // On adding points on the map source: https://www.d3-graph-gallery.com/graph/bubblemap_basic.html
@@ -505,7 +529,7 @@ function render() {
                         return 0;
                     }
                 })
-                .style("fill", "#27b500")
+                .style("fill", "#DB874B")
                 // Enable bubble map
                 //.attr("r", function(d) {return scaleRadius(d[0][2]);})
                 // Enable points
@@ -526,33 +550,11 @@ function render() {
             d3.selectAll(".choropleth-map-slider").remove()
             g1.selectAll(".color-legend").remove()
 
+            g1.selectAll(".lineWidth-legend1").remove()
+            legendLineWidth1()
 
-            // source: http://using-d3js.com/04_08_legends.html
-            // source: https://d3-legend.susielu.com/
-            var legendLineWidth = d3.legendSize()
-                    .scale(scaleWidth)
-                    .shape("path")
-                    .orient("vertical")
-                    .title("Value in m³")
-                    .labelFormat(d3.format(".2s")
 
-                        /*function(val) {
-                        if ( val > 1e6 ) {
-                            return formatSuffixDecimal2(val)
-                        } else {
-                            return val
-                        }
-                    }*/)
-                    .shapePadding(10)
-                    .shapeWidth(20)
-                    .labelAlign("center")
-                    .cells(5)
-                    .labelOffset(15);
-
-                g1.append("g")
-                    .attr("class","lineWidth-legend graph-texts")
-                    .attr("transform","translate(0,355)")
-                    .call(legendLineWidth)
+            
         }
 
         // Draw choropleth    
@@ -593,7 +595,8 @@ function render() {
             g1.selectAll(".path-line").remove()
             g1.selectAll(".dots").remove()
             g1.selectAll(".markers").remove()
-            g1.selectAll(".lineWidth-legend").remove()
+            g1.selectAll(".lineWidth-legend1").remove()
+            g1.selectAll(".color-legend").remove()
 
             // source: http://using-d3js.com/04_08_legends.html
             // source: https://d3-legend.susielu.com/
@@ -612,15 +615,18 @@ function render() {
                     }*/)
                     .shapePadding(10)
                     .shapeWidth(15)
-                    .labelOffset(5);
+                    .labelOffset(15)
+                    .cells(5);
 
                 g1.append("g")
                     .attr("class","color-legend graph-texts")
-                    .attr("transform","translate(0,355)")
+                    .attr("transform", "translate(0,180)")
                     .call(legendColor)
+
+                console.log(max_value)
         }
 
-        var pos = [createArc, createChoropleth]
+        var pos = [createArc, createArc, createChoropleth, createChoropleth, createChoropleth, createChoropleth]
 
         var gs = d3.graphScroll()
             .graph(d3.select(".container-1 #graph"))
