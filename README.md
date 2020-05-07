@@ -31,7 +31,7 @@ The list of ISO 3166 country codes was used as a reference for the total number 
 
 Rowena Caronan – website design and development; map visualisation; research, writing, and graphics (food)  
 Naimish Keswani –  
-Maria Loar –  
+Maria Laar – landing page and wood story development; Flourish and Tableau visualisations; story writing;
 
 ## Acknowledgement
 
