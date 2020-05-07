@@ -193,12 +193,7 @@ div.credits-div:before {
 
 /* About page: create an empty div at the bottom of about page */
 div#part-3-about:after {
-    content: "";
-    background: white;
-    height: 15em;
-    width: 60%;
-    position: absolute;
-
+    padding-bottom: 5em;
 }
 
 /* Story pages: make a line at the back of buttons */
@@ -554,6 +549,10 @@ a {
     background: #DB874B;
 }
 
+.active-textile {
+    background: #2889C6;
+}
+
 /* Class toggle buttons for about page */
 .active-pink {
     background: #FF6B61;
@@ -565,10 +564,17 @@ a {
     padding: 0 1em 0 1em;
 }
 
-#graph, #sections {
+#sections-no-scroll {
+  padding-top: 3em;
+}
+
+#graph-no-scroll,
+#graph,
+#sections {
     padding-top: 1em;
 }
 
+#sections-no-scroll,
 #sections {
     float:right;
     width: 35%;
@@ -576,9 +582,13 @@ a {
     position: relative;
 }
 
+#graph-no-scroll,
 #graph {
-    width: 65%;
-    z-index: 80;
+  width: 65%;
+  z-index: 80;
+
+}
+#graph {
     position: fixed;
 }
 
