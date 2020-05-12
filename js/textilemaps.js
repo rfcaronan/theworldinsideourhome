@@ -11,8 +11,8 @@ function render() {
     oldWidth = innerWidth
 
     var width = height = d3
-        .select("#graph")
-        .node().offsetWidth
+        .select("#graph-no-scroll")
+        .node().offsetWidth;
 
 
     if (innerWidth <= 900){
@@ -81,7 +81,7 @@ function render() {
 
     // Get details for tooltip: import value
     function getImportValue(d){
-        return d3.format(".2s")(d[0][5]).replace("G", "B") + " m³";
+        return "£" + d3.format(".2s")(d[0][5]).replace("G", "B");
     }
 
     // Get details for tooltip: import volume
@@ -118,17 +118,17 @@ function render() {
     }
 
     // Create div for tooltips source: https://bl.ocks.org/d3noob/257c360b3650b9f0a52dd8257d7a2d73
-    var tooltipTextDiv = d3.select("#graph")
+    var tooltipTextDiv = d3.select("#graph-no-scroll")
         .append("div")
         .attr("class", "tooltip-text-div")
         .style("opacity", 0);
 
     // Create svg
     var svg1 = d3
-        .select(".container-1 #graph")
+        .select("#graph-no-scroll")
         .append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", 500);
 
     // Activate for second graph
     /* var svg2 = d3
@@ -153,7 +153,7 @@ function render() {
 
     // Create div for tooltips
     // source: https://bl.ocks.org/d3noob/257c360b3650b9f0a52dd8257d7a2d73
-    var tooltipTextDiv = d3.select("#graph")
+    var tooltipTextDiv = d3.select("#graph-no-scroll")
         .append("div")
         .attr("class", "tooltip-text-div")
         .style("opacity", 0);
@@ -164,7 +164,7 @@ function render() {
         .defer(d3.json, "data/world.json")
         // Load import data file
         // On reading CSV files source: http://learnjsdata.com/v3/read_data.html
-        .defer(d3.csv, "data/woodford3map.csv") 
+        .defer(d3.csv, "data/clothingford3map.csv") 
         //.defer(d3.csv, "data/food.csv") 
         .await(createMap);
 
@@ -188,9 +188,9 @@ function render() {
             /*importData = {source: [+d.longpc, +d.latpc, +d.quantity, d.country, d.ISO3, +d.converted_value_thous, +d.products, +d.year], destination: [+d.longrc, +d.latrc]} */
 
 
-            importData = {source: [+d.longpc, +d.latpc, d.country, d.ISO3, d.year, +d.value_m3, +d.quantity_tonnes, +d.quantity_head, d.top_product ], destination: [+d.longrc, +d.latrc]} 
+            importData = {source: [+d.longpc, +d.latpc, d.country, d.ISO2, d.year, +d.value, +d.quantity_tonnes, +d.quantity_head, d.top_product ], destination: [+d.longrc, +d.latrc]} 
             d.quantity = +d.quantity
-            d.value = +d.value_m3
+            d.value = +d.value
             d.year = +d.year
 
             countryData.push(importData)
@@ -243,14 +243,14 @@ function render() {
         // Color scale
         var colorScale = d3
             .scaleQuantize()
-            .domain([min_value,500000,1500000,2000000,max_value])
+            .domain([min_value,500000,1500000,max_value])
             .range(d3.schemeOranges[5]);
 
         function createSlider() {
                // Create slider
             var uniqueYearsLength = uniqueYears.length - 1
             console.log(uniqueYearsLength);
-            var yearSlider = d3.select("#graph")
+            var yearSlider = d3.select("##graph-no-scroll")
                 .append("div")
                 .attr("id", "sliderContainer")
                 .attr("class", "choropleth-map-slider");
@@ -301,7 +301,7 @@ function render() {
                 tooltipTextDiv.transition()
                     .duration(200)
                     .style("opacity", 1)
-                tooltipTextDiv.html("<span class = 'bold-text black-text country-name-tooltip'>" + getCountryName(d) + "</span>" + "<br/>" + "<span class = 'tooltip-text-label'> Year: </span>" + getYear(d) + "<br/>" + "<span class = 'tooltip-text-label'> Value: </span>" + getImportValue(d) + "<br/>" + "<span class = 'tooltip-text-label'> Top import: </span>" + getProducts(d))
+                tooltipTextDiv.html("Textile import from <span class = 'bold-text black-text country-name-tooltip'>" + getCountryName(d) + "</span> was worth "+ getImportValue(d))
                     //.style("left", (d3.event.pageX - 70) + "px")
                     //.style("top", (d3.event.pageY - 28) + "px");
         }
@@ -329,7 +329,7 @@ function render() {
                     .duration(200)
                     .style("opacity", 1);
                 d3.select(this)
-                    .style("fill", "#DB874B")
+                    .style("fill", "#2889C6")
                     .attr("r", 6);
             }
             tooltipTextDiv.transition()
@@ -385,11 +385,11 @@ function render() {
             });
 
             var country_data = year_filter.filter(function(e) {
-                return e.ISO3 === d.properties.ISO_A3_EH;
+                return e.ISO2 === d.properties.ISO_A2;
             })[0];
 
             if (country_data) {
-                d.total = country_data.value_m3;
+                d.total = country_data.value;
             } else {
                 d.total = 0;
             }
@@ -410,11 +410,11 @@ function render() {
             });
         
             var country_data = year_filter.filter(function(e) {
-                return e.ISO3 === d.properties.ISO_A3_EH;
+                return e.ISO2 === d.properties.ISO_A2;
             })[0];
             
             if (country_data) {
-                d.total = country_data.value_m3;
+                d.total = country_data.value;
             } else {
                 d.total = 0;
             }
@@ -434,7 +434,7 @@ function render() {
                     .scale(scaleWidth)
                     .shape("path")
                     .orient("vertical")
-                    .title("Value in m³")
+                    .title("Value in £")
                     .labelFormat(d3.format(".2s")
 
                         /*function(val) {
@@ -486,7 +486,7 @@ function render() {
                 .attr("d",line)
                 // This makes a straight line; without it, paths look like half moon
                 .style("fill", "none")
-                .style("stroke", "#DB874B")
+                .style("stroke", "#2889C6")
                 .style("stroke-linecap", "round")
                 .style("stroke-width", function(d) {
                     if (d[0][4] == max_year) {
@@ -512,7 +512,7 @@ function render() {
                 .attr("orient", "auto")
                 .append("path")
                 .attr("d", "M 0, 0  m -5, 0  a 5,5 0 1,0 10,0  a 5,5 0 1,0 -10,0")
-                .style("fill", "#DB874B");
+                .style("fill", "#2889C6");
 
             // Add points with tooltips
             // On adding points on the map source: https://www.d3-graph-gallery.com/graph/bubblemap_basic.html
@@ -529,7 +529,7 @@ function render() {
                         return 0;
                     }
                 })
-                .style("fill", "#DB874B")
+                .style("fill", "#2889C6")
                 // Enable bubble map
                 //.attr("r", function(d) {return scaleRadius(d[0][2]);})
                 // Enable points
@@ -596,7 +596,6 @@ function render() {
             g1.selectAll(".dots").remove()
             g1.selectAll(".markers").remove()
             g1.selectAll(".lineWidth-legend1").remove()
-            g1.selectAll(".color-legend").remove()
 
             // source: http://using-d3js.com/04_08_legends.html
             // source: https://d3-legend.susielu.com/
@@ -615,8 +614,7 @@ function render() {
                     }*/)
                     .shapePadding(10)
                     .shapeWidth(15)
-                    .labelOffset(15)
-                    .cells(5);
+                    .labelOffset(5);
 
                 g1.append("g")
                     .attr("class","color-legend graph-texts")
@@ -626,18 +624,7 @@ function render() {
                 console.log(max_value)
         }
 
-        var pos = [createArc, createArc, createChoropleth, createChoropleth, createChoropleth, createChoropleth]
-
-        var gs = d3.graphScroll()
-            .graph(d3.select(".container-1 #graph"))
-            .container(d3.select("#container.container-1"))
-            .eventId("uniqueId1")// namespace for scroll and resize events
-            .sections(d3.selectAll(".container-1 #sections > div"))
-            //.offset(innerWidth < 900 ? innerHeight - 30 : 200)
-            .on("active", function(i) {
-                g1.selectAll(pos[i]);
-            })
-            .offset(300)
+        createArc()
     }
 }
 

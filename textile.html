@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The World Inside Our Home</title>
+    <!-- Standard meta -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google font link -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+    <!-- Load d3.js -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.js"></script>
+
+    <!-- Scrollmagic -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="body-container">
+    <!-- START OF HEADER BUTTONS FOR STORY PAGES -->
+        <!-- Project masthead -->
+        <div class="heading-container center-text">
+            <!-- Project title -->
+            <div class="project-title">
+                <h1 class="project-title black-font bold-text center-text no-line-height"><a href="index.html" class="black-font">The World Inside Our <span class="home-cursive home-color">Home</span></a></h1>
+            </div>
+            <!-- Industry buttons -->
+            <div class="section-buttons" id="header-buttons">
+                <!-- <div class="vertical-top"></div> -->
+                <a href="#part-1"><button id="sec1Button" class="buttonA">The Evolution of UK's Textile Trade</button></a>
+                <a href="#part-2"><button id="sec2Button" class="buttonA black-font">Consumption</button></a>
+                <a href="#part-3"><button id="sec3Button" class="buttonA black-font">Recycling & Used Textile Exports</button></a>
+                <a href="index.html"><button id="homeButton" class="buttonA home-button black-font">Home</button></a>
+                <!-- <a href="about.html"><button id="buttonAbout" class="about-button grey-hover black-font" type="button" value="About">About</button></a> -->
+
+            </div>
+        </div>
+        <!-- END OF HEADER BUTTONS FOR STORY PAGES -->
+
+
+        <!-- START OF STORY PAGE -->
+        <div id="part-1">
+            <div id="container" class="container-1">
+                <div id="sections-no-scroll">
+
+                    <div class="sub-section intro-div">
+                        <h3 class="main-title black-font">Tying Up The Textile Loop</h3>
+                        <p class="credits-info credits">Text and Visualisations by <span class="bold-text">NAIMISH KESWANI</span></p>
+                        <br>
+
+                        <p class="story-paragraphs">From large economies like the USA to small isles in the Caribbean, the United Kingdom imported clothing and textiles worth over £20 Billion from 175 countries in 2019.</p>
+                        <p class="story-paragraphs">China became the top exporter of clothing to the UK in 2005, and has held on to that position ever since. The highest amount of imports in 2019 came from China, valued at about £3 Billion, followed by Bangladesh, Italy, Turkey, Netherlands, and India.</p>
+
+                    </div>
+                </div>
+
+                <!-- Vis goes here -->
+                <div id="graph-no-scroll"></div>
+            </div>
+
+            <div class="one-column-text">
+
+                <p class="story-paragraphs">Before China established its dominance over the industry, Hong Kong — a former colony of the United Kingdom — played a significant role in clothing their old rulers. </p>
+
+            </div>
+
+            <div class="one-column-text">
+                <p class="story-paragraphs">While Hong Kong is known for its financial and tourism industries today, back in the 1950s it was one of Asia’s biggest textile exporters. A large section of the population was employed by the garment manufacturing industry in the consecutive decades. But as China opened up its economy in the 1980s with pro-market reforms, Hong Kong slowly lost its edge.</p>
+            </div>
+
+            <div class="one-column-text">
+                <p class="story-paragraphs">The city continued to clothe the British even after it was handed over to China in 1997. Up until 2004, Hong Kong was the top exporter of clothing to the UK, but manufacturers could not resist cheaper climes across the border. Factories moved to China as land and labour costs were lower.
+                </p>
+            </div>
+
+
+            <div class="one-column-text">
+                <p class="story-paragraphs"><span class="text quote">The bar chart below shows how clothing imports to the UK have changed over the past two decades.
+                </span></p>
+            </div>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/1717063" data-url="https://public.flourish.studio/visualisation/1717063/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+          </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">The UK Fashion & Textiles Association (UKFT) estimates that over 90% of fashion and textiles that consumers buy on UK high streets is imported. </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">The amount of clothing imported by the UK hit an all time high in 2019.
+                  </p>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/1910464" data-url="https://flo.uri.sh/visualisation/1910464/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+            </div>
+          </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text"><br>Some of the most popular brands in the UK source over half of their apparel needs from China, Bangladesh, India, and Turkey.</p>
+            </div>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/2246967" data-url="https://flo.uri.sh/visualisation/2246967/embed" data-width="100%"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+          </div>
+
+            </div>
+
+            <!-- Part 2 Begins here. Everything above this is meant to be part 1. -->
+            <div id="part-2">
+              <h3 class="heading-title black-font one-column-text">Consumption</h3>
+
+             <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Buying from manufacturers based in Asia reduced the cost of clothing in the UK significantly. The Consumer Price Inflation index for clothing and footwear fell to its lowest point in 2010, and has fallen by 46% since 1997. Even though there has been a slight recovery since, the cost of clothing in the UK continues to be easy on consumers’ pockets.</p>
+            </div>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/2024819" data-url="https://flo.uri.sh/visualisation/2024819/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+          </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Due to reduction in prices, the amount of household spending on clothing has seen significant growth over the past two decades. Expenditure on clothing has increased by 378% since 1997. In 2019, UK households spent nearly £60 Billion on clothing, an all time high.</p>
+            </div>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/2017888" data-url="https://flo.uri.sh/visualisation/2017888/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+          </div>
+
+
+        <div id="part-3">
+            <h3 class="heading-title black-font one-column-text">Recycling & Used Textile Exports</h3>
+            <br>
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">According to Waste & Resources Action Programme’s (WRAP) consumer research survey, a piece of clothing is used by a person for an average of 3.3 years before being disposed of or given away to charity. </p>
+            </div>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/2273743" data-url="https://flo.uri.sh/visualisation/2273743/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+          </div>
+
+             <div class="sub-section">
+                <p class="story-paragraphs one-column-text">An estimated 1.3 million tonnes of textile waste was collected in the UK across all household waste and recycling streams in 2017. It accounted for 4.69% of all waste collected that year. The data — which was produced as a part of the National Household Waste Composition Report by WRAP — takes into account clothing and non clothing textiles, shoes, bags, belts, carpets, and underlays. Annually, about 350,000 tonnes of used clothing ends up in the landfills. </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">According to the Textile Recycling Association, on an average, about 650,000 tonnes of clothing is collected annually via donations to charity shops.
+                </p>
+            </div>
+
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">The House of Commons’ Fixing Fashion report suggests that the UK's 11,000 charity shops delivered over 330,000 tonnes of textiles from ending up in the landfills in 2017. </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">“Of the 650,000 tonnes currently collected annually, about 30% is sold in the UK through charity shops, online sales, vintage shops, and boot fairs. The rest of the clothing is exported for re-use,” wrote Alan Wheeler, Director of the Textile Recycling Association in a testimony to the Environmental Audit Committee of the UK Parliament.</p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">The UK exported used textiles worth £159 Million in 2019, a majority of it to countries in Sub Saharan Africa, Asia, and Oceania, according to data by Her Majesty’s Revenue & Customs.</p>
+            </div>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/2277658" data-url="https://flo.uri.sh/visualisation/2277658/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+          </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">However, demand is seeing a drop globally as the East African Community (EAC) vowed to reduce their used clothing intake by 2019. </p>
+            </div>
+
+            <div class = "one-column-text">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/2277103" data-url="https://flo.uri.sh/visualisation/2277103/embed"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+          </div>
+
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">A move towards ‘Fashion Circularity,’ which aims to utilise textile waste and increase longevity of products, seems to be the new way forward. Lifestyle brand Outerknown has already vowed to make sure that 75% of their fabrics and 50% of their products are regenerative by 2025. </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Refurbished and vintage clothing stores are also helping to close the loop. </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Sobey’s has been selling reworked vintage clothing in Cardiff since 2016 and is quite popular with its residents.</p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">“It is now considered cool to shop vintage,” says Paige Hughes, Store Manager at Sobey’s Cardiff. “A lot more people are now aware of the impact fast fashion has on the environment and that’s definitely helped in improving our sales.” </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">Fashion circularity is also a part of Sobey’s ethos. </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">A large chunk of their clothing is from the 70s, 80s, and 90s, which they refurbish or re-work into something entirely new at their warehouse in Bristol. Scraps are turned into scarves or scrunchies.</p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">“Clothes back in the day were a lot better made. The likelihood of wear and tear is very slim because they’ve stood the test of time and it’s still here,” says Paige. </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">“We just want to rehome them and give them a new purpose.” </p>
+            </div>
+
+            <div class="sub-section">
+                <p class="story-paragraphs one-column-text">And that’s what makes all the difference.  </p>
+            </div>
+
+
+        </div>
+
+        <div class="credits-div one-column-text">
+            <br>
+            <p class="story-paragraphs">Please <span class="text-with-underline grey-hover"><a href="data.html">click here</a></span> for details on data sources and methodology.</p>
+        </div>
+    </div>
+    <!-- END OF STORY PAGE -->
+
+    <!-- START OF JAVASCRIPT LINKS -->
+    <script type="text/javascript" src="js/sticky.js"></script>
+    <!-- Visualisation -->
+    <script type="text/javascript" src="js/textilemaps.js"></script>
+    <script type="text/javascript" src="js/classtoggletextile.js"></script>
+    <!-- Graph-scroll -->
+    <script type="text/javascript" src="js/d3v4+jetpack.js"></script>
+    <script type="text/javascript" src="js/graph-scroll.js"></script>
+    <!-- <script type="text/javascript" src="scroll1.js"></script> -->
+    <!-- END OF JAVASCRIPT LINKS -->
+
+</body>
+</html>

@@ -53,7 +53,7 @@ a.grey-hover:hover,
 
 /* Homepage: set background color of popups */
 .food-pop {
-    background: #27b500; 
+    background: #27b500;
 }
 
 .wood-pop {
@@ -192,13 +192,8 @@ div.credits-div:before {
 }
 
 /* About page: create an empty div at the bottom of about page */
-div#part-5-about:after {
-    content: "";
-    background: white;
-    height: 15em;
-    width: 60%;
-    position: absolute;
-
+div#part-3-about:after {
+    padding-bottom: 5em;
 }
 
 /* Story pages: make a line at the back of buttons */
@@ -406,11 +401,11 @@ body {
 /* All pages: for all text in p and button elements */
 p,
 button,
-tr { 
+tr {
     font-family: Open Sans, sans-serif;
     font-size: 1rem;
     text-align: left;
-    line-height: 1.8; 
+    line-height: 1.8;
 }
 
 button {
@@ -434,7 +429,7 @@ h4,
 h5,
 h6 {
     font-family: "Playfair Display", serif;
-    line-height: 1.3;
+    line-height: 1.4;
     text-align: left;
 }
 
@@ -499,7 +494,7 @@ h2.heading-title > span.large-text {
 /* Homepage: project members */
 p.credits {
     font-size: .8rem;
-    line-height: 1.3;
+    line-height: 1.5;
 }
 
 p.caption {
@@ -550,6 +545,14 @@ a {
     background: #27b500;
 }
 
+.active-wood {
+    background: #DB874B;
+}
+
+.active-textile {
+    background: #2889C6;
+}
+
 /* Class toggle buttons for about page */
 .active-pink {
     background: #FF6B61;
@@ -561,10 +564,17 @@ a {
     padding: 0 1em 0 1em;
 }
 
-#graph, #sections {
+#sections-no-scroll {
+  padding-top: 3em;
+}
+
+#graph-no-scroll,
+#graph,
+#sections {
     padding-top: 1em;
 }
 
+#sections-no-scroll,
 #sections {
     float:right;
     width: 35%;
@@ -572,9 +582,13 @@ a {
     position: relative;
 }
 
+#graph-no-scroll,
 #graph {
-    width: 65%;
-    z-index: 80;
+  width: 65%;
+  z-index: 80;
+
+}
+#graph {
     position: fixed;
 }
 
@@ -595,12 +609,12 @@ a {
 }
 
 #sections {
-    margin-top: 5em;
+    margin-top: 2em;
 }
 
 #sections > div {
   opacity: .1;
-} 
+}
 
 #sections div.graph-scroll-active {
   opacity: 1;
@@ -644,12 +658,12 @@ p.story-paragraphs {
 /*#part-1 {
     width: 100%;
     height: 100%;
-    
+
 }*/
 
 /* Centre paragraphs without graphs */
 .one-column-text {
-    width: 60%;
+    width: 65%;
     margin: auto;
 }
 
@@ -657,17 +671,17 @@ p.story-paragraphs {
 
 #sliderContainer {
     position: absolute;
-    top: 130px;
+    top: 1em;
     left: 0;
 }
 
 /* Set slider properties */
 #timeSlide {
     /* Override default CSS styles */
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     appearance: none;
     /* Specify height */
-    height: 1em; 
+    height: 1em;
     background: #d3d3d3;
     /* Remove outline */
     outline: none;
@@ -676,7 +690,7 @@ p.story-paragraphs {
 
 /* Set slider handle properties */
 #timeSlide::-moz-range-thumb {
-    width: 1.2em; 
+    width: 1.2em;
     height: 1.6em;
     background: #4d4d4d;
     cursor: crosshair;
@@ -700,7 +714,7 @@ input[type=range]::-moz-focus-outer {
 div.tooltip-text-div {
     z-index: 100;
     left: 30em;
-    top: 21.7em;
+    top: 22.7em;
     position: absolute;
     text-align: left;
     width: auto;
@@ -709,7 +723,7 @@ div.tooltip-text-div {
     background-color: white;
     /*box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);*/
     border: #a3a3a3 solid .08em;
-    border-radius: .5em;
+    border-radius: .2em;
     line-height: 1.5;
     color: black;
     font-size: .9rem;
@@ -731,4 +745,100 @@ div.tooltip-text-div > .country-name-tooltip {
 #part-2,
 #part-3 {
     padding-top: 5em;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 868px) {
+
+  div.intro-text > p,
+  div.popup-div > p {
+      font-size: .8rem;
+  }
+
+  /* Homepage: popup titles */
+  h2.heading-title > span.large-text {
+      font-size: 1.8rem;
+  }
+
+  /* Homepage: project members */
+  p.credits {
+      font-size: .6rem;
+      line-height: 1.3;
+  }
+
+
+
+}
+
+
+@media screen and (max-width: 789px) {
+
+  div.left-side-container {
+      flex: 2.75;
+      position: relative;
+  }
+
+  /* Homepage: right-side container */
+  div.right-side-container {
+      flex: 1.25;
+      position: relative;
+      /* Make popups above the project-intro text */
+      display: flex;
+  }
+
+
+}
+
+@media screen and (max-width: 659px) {
+
+  div.main-container-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  /* Homepage: left-side container */
+  div.left-side-container {
+      position: relative;
+      flex: 2;
+  }
+
+  /* Homepage: right-side container */
+  div.right-side-container {
+      flex: 2;
+      position: absolute;
+      top: 530px;
+      margin-right: 20px;
+      /* Make popups above the project-intro text */
+      display: flex;
+  }
+
+}
+
+@media screen and (max-width: 458px) {
+
+  div.right-side-container {
+    top: 500px;
+
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  div.right-side-container {
+    top: 485px;
+
+  }
+
+}
+
+@media screen and (max-width: 385px) {
+
+  div.right-side-container {
+    top: 480px;
+
+  }
+
 }

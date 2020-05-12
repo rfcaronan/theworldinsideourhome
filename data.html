@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The World Inside Our Home</title>
+    <!-- Standard meta -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google font link -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+    <!-- Load d3.js -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.js"></script>
+
+    <!-- Scrollmagic -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class ="body-container" id="body-container">
+    <!-- START OF HEADER BUTTONS FOR STORY PAGES -->
+        <!-- Project masthead -->
+        <div class="heading-container">
+            <!-- Project title -->
+            <div class="project-title">
+                <h1 class="project-title black-font bold-text center-text no-line-height"><a href="index.html" class="black-font">The World Inside Our <span class="home-cursive home-color">Home</span></a></h1>
+            </div>
+            <!-- Industry buttons -->
+            <div class="section-buttons center-text" id="header-buttons">
+                <a href="index.html"><button id="homeButton" class="buttonA home-button black-font">Home</button></a>
+                <button id="homeButton" class="buttonA home-button"><a href="about.html">About</a></button>
+            </div>
+
+        </div>
+        <!-- END OF HEADER BUTTONS FOR STORY PAGES -->
+
+        <div class="main-container">
+
+            <div id="part-1-about">
+                <div class="sub-section-about">
+                    <h2 class="main-title black-font one-column-text">Data Sources</h2>
+                    
+                    <p class="story-paragraphs one-column-text">Food industry:</p>
+                    <p class="story-paragraphs one-column-text">Trade data was sourced from the Food and Agriculture Organization (FAO) of the United Nations: <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/TM">Detailed Trade Matrix</a></span>, <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/QC">Crops</a></span>, <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/QA">Live Animals</a></span>, <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/QL">Livestock Primary</a></span>.</p>
+
+                    <p class="story-paragraphs one-column-text">The Office for National Statistics  was the source for data on weekly food spending by <span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/detailedhouseholdexpenditurebycountriesandregionsuktablea35">food item</a></span> and <span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/expenditureonfoodandnonalcoholicdrinksbyplaceofpurchaseukfinancialyearending2016tablea2">place of purchase</a></span> and <span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/timeseries/auss/mret/previous">pound sterling to US dollar exchange rates</a></span>. Information on <span class="text-with-underline grey-hover"><a href = "https://www.gov.uk/government/statistics/gdp-deflators-at-market-prices-and-money-gdp-march-2020-budget">GDP deflators</a></span> was sourced from HM Treasury.</p>
+
+                    <p class="story-paragraphs one-column-text">Textile industry:</p>
+                    
+                    <p class="story-paragraphs one-column-text">Data on <span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/datasets/trade/editions/time-series/versions/19">import/export trade</a></span> of textile in the UK, <span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7bw/mm23?referrer=search&searchTerm=d7bw">CPI</a></span>, and <span class="text-with-underline grey-hover"><a href = "https://www.ons.gov.uk/economy/nationalaccounts/satelliteaccounts/datasets/consumertrends">consumer trends</a></span> were sourced from ONS. Company information was sourced from the <span class="text-with-underline grey-hover"><a href = "https://openapparel.org/">Global Apparel Facilities</a></span> and related company websites. WRAP's <span class="text-with-underline grey-hover"><a href = "https://wrap.org.uk/sites/files/wrap/National%20household%20waste%20composition%202017.pdf">National Household Waste Composition</a></span> was also referred to in the research.</p>
+                    
+                    <p class="story-paragraphs one-column-text">Wood industry:</p>
+
+                    <p class="story-paragraphs one-column-text">Import and export data on <span class="text-with-underline grey-hover"><a href = "http://www.fao.org/faostat/en/#data/TM">raw wood</a></span> was sourced from FAO, while that on the different <span class="text-with-underline grey-hover"><a href = "https://comtrade.un.org/data">types of wood</a></span> was from the UN Comtrade Database. Data on the <span class="text-with-underline grey-hover"><a href = "https://www.worldometers.info/world-population/uk-population">UK population</a></span> was sourced from Worldometer.</p>
+
+                </div>
+            </div>
+
+            <div id="part-2">
+                <div class="sub-section-about">
+                    <h2 class="main-title black-font one-column-text">Data Processing</h2>
+
+                    <p class="story-paragraphs one-column-text">Trade values were converted into thousands, whenever applicable, and from dollars to pounds, using the appropriate exchange rate for a given year. Trade values adjusted for inflation in 2017 pounds were used in the analysis of over a 10-year period.</p>
+
+                    <p class="story-paragraphs one-column-text">The list of ISO 3166 country codes was used as a reference for the total number of countries and territories because it is comprehensive.</p>
+                </div>
+            </div>
+            <div id="part-3-about">
+            </div>
+        </div>
+    <!-- END OF STORY PAGE -->
+
+    <!-- START OF JAVASCRIPT LINKS -->
+    <script type="text/javascript" src="js/classtoggle.js"></script>
+    <script type="text/javascript" src="js/sticky.js"></script>
+    <!-- END OF JAVASCRIPT LINKS -->
+
+</body>
+</html>

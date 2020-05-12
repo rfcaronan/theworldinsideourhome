@@ -60,4 +60,3 @@ This project was supported by our course coordinators Dr Aidan O’Donnell, from
 ## Publication
 
 This project is published in May 2020. After the date of publication, the development of the project will probably be stopped completely.
-ter the date of publication, the development of the project will probably be stopped completely.
