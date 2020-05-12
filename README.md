@@ -17,20 +17,20 @@ Go back to “Home” to explore other industries.
 For the food industry:
 Export and Import (Detailed Trade Matrix) and Production (Live Animals, Livestock Primary, Crops), 2007–2017: [Food and Agriculture Organization (FAO) of the United Nations](http://www.fao.org/faostat/en/#data/TM)
 Detailed Household Expenditure By Countries and Regions: Table A35: [Office for National Statistics (ONS)](https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/detailedhouseholdexpenditurebycountriesandregionsuktablea35)
-Expenditure on Food and Non-Alcoholic Drinks By Place of Purchase: Table A2: [Office for National Statistics (ONS)]( https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/expenditureonfoodandnonalcoholicdrinksbyplaceofpurchaseukfinancialyearending2016tablea2)
+Expenditure on Food and Non-Alcoholic Drinks By Place of Purchase: Table A2: [ONS]( https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/expenditureonfoodandnonalcoholicdrinksbyplaceofpurchaseukfinancialyearending2016tablea2)
 Average Sterling Exchange Rate: US Dollar: [Office for National Statistics (ONS)](https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/timeseries/auss/mret/previous)
 GDP Deflators at Market Prices, and Money GDP March 2020 (Budget): [HM Treasury](https://www.gov.uk/government/statistics/gdp-deflators-at-market-prices-and-money-gdp-march-2020-budget)
-ISO 3166 country codes: [International Organization for Standardization(ISO)](https://www.iso.org/iso-3166-country-codes.html)
+ISO 3166 country codes: [International Organization for Standardization (ISO)](https://www.iso.org/iso-3166-country-codes.html)
 
 For the textile industry:
-Import/Export by Country: [ONS)](https://www.ons.gov.uk/datasets/trade/editions/time-series/versions/19)
+Import/Export by Country: [ONS](https://www.ons.gov.uk/datasets/trade/editions/time-series/versions/19)
 [Global Apparel Facilities](https://openapparel.org/) & company websites. 
-CPI Data: [ONS)](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7bw/mm23?referrer=search&searchTerm=d7bw)
-Consumer Trends: [ONS)](https://www.ons.gov.uk/economy/nationalaccounts/satelliteaccounts/datasets/consumertrends)
+CPI Data: [ONS](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7bw/mm23?referrer=search&searchTerm=d7bw)
+Consumer Trends: [ONS](https://www.ons.gov.uk/economy/nationalaccounts/satelliteaccounts/datasets/consumertrends)
 National Household Waste Composition: [WRAP](https://wrap.org.uk/sites/files/wrap/National%20household%20waste%20composition%202017.pdf)
 
 For the wood industry:
-Export/Import of Raw wood statistics (Forestry Production and Trade): [Food and Agriculture Organization (FAO) of the United Nations](http://www.fao.org/faostat/en/#data/TM)
+Export/Import of Raw wood statistics (Forestry Production and Trade): [FAO](http://www.fao.org/faostat/en/#data/TM)
 Import/Export of raw types of wood (Industrial roundwood, plywoon, sawnwood etc): [UN Comtrade Database](https://comtrade.un.org/data)
 UK Population: [Worldometer](https://www.worldometers.info/world-population/uk-population/)
 
@@ -51,8 +51,7 @@ We used the basic front-end development technologies: HTML5, CSS, and JavaScript
 
 Rowena Caronan – website design and development; map visualisation; research, writing, and graphics (food)  
 Naimish Keswani – website design and development; research, writing, and visualisations (textile)  
-Maria Laar – website design and development; research, writing, and visualisations (textile)  
-
+Maria Laar – website design and development; research, writing, and visualisations (wood)  
 
 ## Acknowledgement
 
@@ -61,3 +60,4 @@ This project was supported by our course coordinators Dr Aidan O’Donnell, from
 ## Publication
 
 This project is published in May 2020. After the date of publication, the development of the project will probably be stopped completely.
+ter the date of publication, the development of the project will probably be stopped completely.
