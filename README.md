@@ -1,4 +1,4 @@
-# The World Inside Our Home
+# [The World Inside Our Home](https://rfcaronan.github.io/theworldinsideourhome/index.html)
 
 This is a project built as a part of our coursework for MSc in Computational and Data Journalism at Cardiff University. It’s a work in progress.
 
