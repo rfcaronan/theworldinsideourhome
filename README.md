@@ -50,8 +50,10 @@ We used the basic front-end development technologies: HTML5, CSS, and JavaScript
 ## Collaborators
 
 Rowena Caronan – website design and development; map visualisation; research, writing, and graphics (food)  
+
 Naimish Keswani – website design and development; research, writing, and visualisations (textile)  
-Maria Laar – website design and development; research, writing, and visualisations (wood)  
+Maria Laar – website design and development; research, writing, and visualisations (textile)  
+
 
 ## Acknowledgement
 
